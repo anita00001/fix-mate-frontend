@@ -25,3 +25,18 @@
   background: white;
   transition: all 0.4s ease-in-out;
 }
+
+@media screen and (min-width: 768px) {
+  .sideBarHidden,
+  .sideBar {
+    transform: translateX(0);
+    left: 0;
+    top: 0;
+    width: 25%;
+    transition: all 250ms ease-in-out;
+  }
+
+  .sidebarBtn {
+    display: none;
+  }
+}
