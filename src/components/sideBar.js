@@ -9,22 +9,30 @@ const Sidebar = () => {
 
   const displayHideNavbar = () => setNavClosed(!navClose);
 
+  const navLinks = [
+    { path: '/', name: 'Experts' },
+    { path: '/', name: 'My Reservations' },
+    { path: '/', name: 'Reserve an Expert' },
+    { path: '/', name: 'Create an Expert' },
+    { path: '/', name: 'Delete an Expert' },
+  ];
+
   return (
     <>
       <button
         type="button"
-        className="closeSidebar"
+        className="closeSidebar sidebarBtn"
         onClick={displayHideNavbar}
       >
         <HiOutlineMenuAlt4 className="text-2xl" />
       </button>
       <div
-        className={`sideBar flex h-screen flex-col absolute justify-between border-r
+        className={`sideBar shadow-sm flex h-screen flex-col absolute justify-between border-r
          ${navClose ? 'bg-white' : 'sideBarHidden'}`}
       >
         <button
           type="button"
-          className="closeSidebar"
+          className="closeSidebar sidebarBtn"
           onClick={displayHideNavbar}
         >
           <AiOutlineClose className="text-2xl" />
@@ -36,39 +44,18 @@ const Sidebar = () => {
           </span>
 
           <nav aria-label="Main Sidebar" className="mt-6 flex flex-col space-y-1">
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 rounded-lg   px-4 py-2 text-gray-500"
-            >
-              <span className="font-semibold">Experts</span>
-            </NavLink>
 
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500"
-            >
-              <span className="font-semibold">My Reservations</span>
-            </NavLink>
-
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500"
-            >
-              <span className="font-semibold">Reserve an Expert</span>
-            </NavLink>
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 rounded-lg  px-4 py-2 text-gray-500"
-            >
-              <span className="font-semibold">Create an Expert</span>
-            </NavLink>
-
-            <NavLink
-              to="/"
-              className="flex items-center  gap-2 rounded-lg   px-4 py-2 text-gray-500"
-            >
-              <span className="font-semibold">Delete an Expert</span>
-            </NavLink>
+            {
+  navLinks.map((link) => (
+    <NavLink
+      key={link.name}
+      to={link.path}
+      className="flex items-center gap-2 rounded-lg hover:bg-primary hover:text-white cursor-pointer transition px-4 py-2 text-gray-500"
+    >
+      <span className="font-semibold">{link.name}</span>
+    </NavLink>
+  ))
+}
           </nav>
         </div>
 
