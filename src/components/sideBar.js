@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { CiLogout } from 'react-icons/ci';
 import '../styles/sideBar.css';
 import { NavLink } from 'react-router-dom';
 
@@ -59,7 +60,18 @@ const Sidebar = () => {
           </nav>
         </div>
 
-        <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 flex items-center  gap-2 rounded-lg  px-4 py-2 text-gray-500 ">
+        <div className="sticky  flex-col inset-x-0 bottom-0 border-t border-gray-100 flex items-center  gap-2 rounded-lg  px-4 py-2 text-gray-500 ">
+          <div className="flex flex-col space-y-10 w-full">
+            <NavLink
+              to="/"
+              className="flex items-center cursor-pointer gap-2 rounded-lg hover:bg-prime hover:text-white  px-4 py-2 text-gray-500"
+            >
+              <span>
+                <CiLogout />
+              </span>
+              <span className="font-semibold">Logout</span>
+            </NavLink>
+          </div>
           <a href="https://github.com/anita00001/fix-mate-frontend" className="text-gray-500 font-semibold px-4">&copy; FixMate</a>
         </div>
 
