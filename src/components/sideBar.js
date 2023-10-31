@@ -1,4 +1,4 @@
-const sideBar = () => (
+const Sidebar = () => (
   <div>sideBar</div>
 );
-export default sideBar;
+export default Sidebar;
