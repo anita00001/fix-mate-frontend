@@ -18,10 +18,9 @@ const Sidebar = () => {
       >
         <HiOutlineMenuAlt4 className="text-2xl" />
       </button>
-      <div className={
-        navClose ? 'sideBar flex h-screen flex-col absolute justify-between border-r bg-white'
-          : 'sideBarHidden flex h-screen flex-col absolute justify-between border-r'
-      }
+      <div
+        className={`sideBar flex h-screen flex-col absolute justify-between border-r
+         ${navClose ? 'bg-white' : 'sideBarHidden'}`}
       >
         <button
           type="button"
