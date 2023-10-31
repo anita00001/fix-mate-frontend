@@ -41,40 +41,40 @@ const Sidebar = () => {
               to="/"
               className="flex items-center gap-2 rounded-lg   px-4 py-2 text-gray-500"
             >
-              <span className="font-bold">Experts</span>
+              <span className="font-semibold">Experts</span>
             </NavLink>
 
             <NavLink
               to="/"
               className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500"
             >
-              <span className="font-bold">My Reservations</span>
+              <span className="font-semibold">My Reservations</span>
             </NavLink>
 
             <NavLink
               to="/"
               className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500"
             >
-              <span className="font-bold">Reserve an Expert</span>
+              <span className="font-semibold">Reserve an Expert</span>
             </NavLink>
             <NavLink
               to="/"
               className="flex items-center gap-2 rounded-lg  px-4 py-2 text-gray-500"
             >
-              <span className="font-bold">Create an Expert</span>
+              <span className="font-semibold">Create an Expert</span>
             </NavLink>
 
             <NavLink
               to="/"
               className="flex items-center  gap-2 rounded-lg   px-4 py-2 text-gray-500"
             >
-              <span className="font-bold">Delete an Expert</span>
+              <span className="font-semibold">Delete an Expert</span>
             </NavLink>
           </nav>
         </div>
 
         <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 flex items-center  gap-2 rounded-lg  px-4 py-2 text-gray-500 ">
-          <a href="https://github.com/anita00001/fix-mate-frontend" className="text-gray-500 font-bold px-4">&copy; FixMate</a>
+          <a href="https://github.com/anita00001/fix-mate-frontend" className="text-gray-500 font-semibold px-4">&copy; FixMate</a>
         </div>
 
       </div>
