@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import '../styles/sideBar.css';
 import { NavLink } from 'react-router-dom';
 
-const sideBar = () => {
+const Sidebar = () => {
   const [navClose, setNavClosed] = useState(false);
 
   const displayHideNavbar = () => setNavClosed(!navClose);
@@ -81,4 +81,4 @@ const sideBar = () => {
     </>
   );
 };
-export default sideBar;
+export default Sidebar;
