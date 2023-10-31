@@ -1,0 +1,6 @@
+.sideBar {
+  transform: translateX(0%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: all 0.4s ease-in-out;
+}
