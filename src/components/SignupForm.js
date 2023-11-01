@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signupDetails } from '../redux/signup/signupSlice';
 
 function SignupForm() {
@@ -9,6 +10,7 @@ function SignupForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function SignupForm() {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
+      setSignupSuccess(true);
     } else {
       setPasswordMatch(false);
     }
@@ -26,8 +29,15 @@ function SignupForm() {
 
   return (
     <div>
+      <h1 className="font-bold text-slate-900">User Registration</h1>
       <form onSubmit={handleSubmit}>
         {!passwordMatch && <p>Passwords do not match.</p>}
+        {signupSuccess && (
+          <p>
+            Signup successful! You can now
+            <Link to="/login"> proceed to the home page</Link>
+          </p>
+        )}
         <div>
           <input
             type="text"
