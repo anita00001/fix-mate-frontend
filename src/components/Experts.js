@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { fetchExperts } from '../redux/Experts/ExpertsSlice';
 import '../styles/Experts.css';
 
@@ -19,7 +20,13 @@ const Experts = () => {
       <ul className="ul">
         {experts.map((expert) => (
           <li key={expert.id}>
-            <img alt="expert-photograph" src="expert.image.url" />
+            <img alt={expert.first_name} src={expert.image} />
+            <br />
+            <div className="social-media">
+              <FaFacebook />
+              <FaTwitter />
+              <FaLinkedin />
+            </div>
             {'Name: '}
             {expert.first_name}
             {' '}

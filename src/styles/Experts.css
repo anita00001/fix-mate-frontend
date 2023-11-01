@@ -23,6 +23,11 @@
   gap: 3rem;
 }
 
+.social-media {
+  display: flex;
+  gap: 0.3rem;
+}
+
 .detail-btn {
   border: 1px solid rgb(107 114 128);
   padding: 0.5rem 1rem;
