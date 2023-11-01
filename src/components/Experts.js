@@ -7,8 +7,6 @@ import '../styles/Experts.css';
 const Experts = () => {
   const dispatch = useDispatch();
   const experts = useSelector((state) => state.experts.experts);
-  // const specializations = useSelector((state) => state.experts.specializations);
-  // console.log(experts);
 
   useEffect(() => {
     dispatch(fetchExperts());

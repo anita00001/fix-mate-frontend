@@ -33,7 +33,6 @@ const ExpertsSlice = createSlice({
         error: null,
       }))
       .addCase(fetchExperts.fulfilled, (state, action) => {
-        // console.log('API Response:', action.payload);
         state.experts = action.payload;
         state.loading = false;
         state.error = null;
