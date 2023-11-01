@@ -21,7 +21,7 @@ const initialState = {
   error: null,
 };
 
-const ExpertsSlice = createSlice({
+const expertsSlice = createSlice({
   name: 'experts',
   initialState,
   reducers: {},
@@ -44,4 +44,4 @@ const ExpertsSlice = createSlice({
   },
 });
 
-export default ExpertsSlice.reducer;
+export default expertsSlice.reducer;

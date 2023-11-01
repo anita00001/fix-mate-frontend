@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import ExpertsSlice from './Experts/ExpertsSlice';
+import expertsSlice from './experts/expertsSlice';
 
 const store = configureStore({
   reducer: {
-    experts: ExpertsSlice,
+    experts: expertsSlice,
   },
   middleware: [thunk],
 });

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { fetchExperts } from '../redux/Experts/ExpertsSlice';
+import { fetchExperts } from '../redux/experts/expertsSlice';
 import '../styles/Experts.css';
 
 const Experts = () => {
