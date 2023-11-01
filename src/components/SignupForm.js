@@ -15,6 +15,10 @@ function SignupForm() {
     if (password === confirmPassword) {
       setPasswordMatch(true);
       dispatch(signupDetails({ name, email, password }));
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
     } else {
       setPasswordMatch(false);
     }
