@@ -11,7 +11,7 @@ export const signupDetails = createAsyncThunk('authentication/signup', async (id
         password: identity.password,
       },
     });
-    return response.headers.authorization;
+    return response.data;
   } catch (error) {
     throw new Error('User registration failed');
   }
