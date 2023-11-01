@@ -19,6 +19,7 @@ const Experts = () => {
       <ul className="ul">
         {experts.map((expert) => (
           <li key={expert.id}>
+            <img alt="expert-photograph" src="expert.image.url" />
             {'Name: '}
             {expert.first_name}
             {' '}
