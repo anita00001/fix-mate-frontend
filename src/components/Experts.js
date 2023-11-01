@@ -6,6 +6,8 @@ import '../styles/Experts.css';
 const Experts = () => {
   const dispatch = useDispatch();
   const experts = useSelector((state) => state.experts.experts);
+  // const specializations = useSelector((state) => state.experts.specializations);
+  // console.log(experts);
 
   useEffect(() => {
     dispatch(fetchExperts());
@@ -23,7 +25,7 @@ const Experts = () => {
             {expert.last_name}
             <br />
             {'Specialization: '}
-            {expert.specialization_id }
+            {expert.name }
             <br />
             {'Status: '}
             {expert.status ? 'Available' : 'Not available, please check later'}
