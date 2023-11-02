@@ -20,6 +20,7 @@ const Sidebar = () => {
     { path: '/', name: 'Delete an Expert' },
   ];
 
+  const [error, setError] = useState('');
   const handleLogout = async () => {
     try {
       const response = await axios.delete(`${baseURL}logout`, {
@@ -33,12 +34,13 @@ const Sidebar = () => {
         window.location.href = '/login';
       }
     } catch (error) {
-      console.error('Logout failed', error);
+      setError('Logout failed');
     }
   };
 
   return (
     <>
+      {error}
       <button
         type="button"
         className="closeSidebar sidebarBtn"
