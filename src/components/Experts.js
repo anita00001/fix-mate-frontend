@@ -16,7 +16,7 @@ const Experts = () => {
   return (
     <>
       <Sidebar />
-      <div className="expert-page">
+      <div className="expert-page page">
         <h1>Meet our Experts</h1>
         <ul className="ul">
           {experts.map((expert) => (

@@ -1,4 +1,9 @@
+import Sidebar from './Sidebar';
+
 const Reservations = () => (
-  <div>Reservations</div>
+  <>
+    <Sidebar />
+    <div>Reservations</div>
+  </>
 );
 export default Reservations;
