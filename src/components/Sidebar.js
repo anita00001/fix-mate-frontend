@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   const navLinks = [
     { path: '/', name: 'Experts' },
-    { path: '/', name: 'My Reservations' },
+    { path: '/reservations', name: 'My Reservations' },
     { path: '/', name: 'Reserve an Expert' },
     { path: '/', name: 'Create an Expert' },
     { path: '/', name: 'Delete an Expert' },
