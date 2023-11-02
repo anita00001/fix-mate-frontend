@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../redux/Reservations/reservationsSlice';
 import Sidebar from './Sidebar';
-import '../styles/reservations.css';
 
 const customStyles = {
   headCells: {
@@ -92,21 +91,30 @@ const Reservations = () => {
   return (
     <>
       <Sidebar />
-      <div className="container">
-        <div className="page">
-          <h1>My Reservations</h1>
-          <p className="text mb-10">
-            These are the your reservations that you have made.
-          </p>
-          <DataTable
-            columns={columns}
-            data={formattedData}
-            pagination
-            responsive
-            customStyles={customStyles}
-            theme="solarized"
-            fixedHeader
-          />
+      <div style={{
+        backgroundImage: 'linear-gradient(rgba(152, 191, 17, 0.2), rgba(152, 191, 17, 0.2)), url("./images/kenny-eliason-unsplash.jpg")',
+        backgroundSize: 'cover',
+        position: 'relative',
+      }}
+      >
+        <div
+          className="container"
+        >
+          <div className="page  md:px-0 px-4 pt-8">
+            <h1 className="text-white">My Reservations</h1>
+            <p className="text mb-10 text-center text-white">
+              These are the your reservations that you have made.
+            </p>
+            <DataTable
+              columns={columns}
+              data={formattedData}
+              pagination
+              responsive
+              customStyles={customStyles}
+              theme="solarized"
+              fixedHeader
+            />
+          </div>
         </div>
       </div>
     </>
