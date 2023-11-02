@@ -5,9 +5,9 @@ export default function Authenticate() {
   const navigate = useNavigate();
   return (
     <div className="h-screen flex flex-col justify-center items-center" style={{ backgroundImage: 'url("./images/fix-background.jpg")', backgroundSize: 'cover' }}>
-      <div className="bg-gray-100 p-4 text-center opacity-75">
+      <div className="bg-black p-4 text-center opacity-75">
         <div className="text-2xl font-bold">Hi, FIX MATE</div>
-        <p className="text-gray-600">
+        <p className="text-white">
           <span className="text-green-500 font-bold">Fix Mate </span>
           is committed to making everyday life more convenient by connecting users with trusted
           service providers. It is a one-stop platform for finding, booking, and  reviewing
