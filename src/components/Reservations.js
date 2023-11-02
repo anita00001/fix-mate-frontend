@@ -1,32 +1,33 @@
-import DataTable from 'react-data-table-component';
+import DataTable, { createTheme } from 'react-data-table-component';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../redux/Reservations/reservationsSlice';
 import Sidebar from './Sidebar';
+import '../styles/reservations.css';
 
-// const column = [
-//   {
-//     name: 'id',
-//     selector: (row) => row.id,
-//   }, {
-//     name: 'User Name',
-//     selector: (row) => row.name,
-//   }, {
-//     name: 'Expert Name',
-//     selector: (row) => row.fullName,
-//   }, {
-//     name: 'Specialization',
-//     selector: (row) => row.title,
-//   }, {
-//     name: 'Reservation Date',
-//     selector: (row) => row.title,
-//   }, {
-//     name: 'Reserve date',
-//     selector: (row) => row.title,
-//   },
+const customStyles = {
+  headCells: {
+    style: {
+      color: 'white',
+      backgroundColor: '#98bf11',
+    },
+  },
 
-// ];
+};
 
+createTheme('solarized', {
+  text: {
+    primary: '#000',
+  },
+  divider: {
+    default: '#98bf11',
+  },
+  action: {
+    button: 'rgba(0,0,0,.54)',
+    hover: 'rgba(0,0,0,.08)',
+    disabled: 'rgba(0,0,0,.12)',
+  },
+});
 const Reservations = () => {
   const dispatch = useDispatch();
   const { reservations, loading, error } = useSelector((state) => state.reservations);
@@ -78,7 +79,7 @@ const Reservations = () => {
 
   if (loading === true) {
     return (
-      <div className=" h-screen w-full flex justify-center items-center">
+      <div className="container page flex justify-center items-center">
         Loading your reservations...
       </div>
     );
@@ -102,6 +103,9 @@ const Reservations = () => {
             data={formattedData}
             pagination
             responsive
+            customStyles={customStyles}
+            theme="solarized"
+            fixedHeader
           />
         </div>
       </div>
