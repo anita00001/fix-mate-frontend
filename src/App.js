@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Sidebar from './components/Sidebar';
+import Experts from './components/Experts';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/loginForm';
-import Home from './components/Home';
 
 const isUserLoggedIn = () => {
   const userPassport = localStorage.getItem('userPassport');
@@ -18,14 +19,15 @@ const CheckAuthentication = ({ element }) => {
 
 function App() {
   return (
-    <div>
+    <div className="flex w-full overflow-x-hidden">
+      <Sidebar />
       <Routes>
-        <Route
-          path="/"
-          element={<CheckAuthentication element={<Home />} />}
-        />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route
+          path="/"
+          element={<CheckAuthentication element={<Experts />} />}
+        />
       </Routes>
     </div>
   );
