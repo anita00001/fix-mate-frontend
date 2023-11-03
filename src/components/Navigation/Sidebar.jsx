@@ -2,24 +2,16 @@ import { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { CiLogout } from 'react-icons/ci';
-import '../styles/sideBar.css';
+import '../../styles/sideBar.css';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import baseURL from '../redux/apiConfig';
+import baseURL from '../../redux/apiConfig';
+import navLinks from './index';
 
 const Sidebar = () => {
   const [navClose, setNavClosed] = useState(false);
 
   const displayHideNavbar = () => setNavClosed(!navClose);
-
-  const navLinks = [
-    { path: '/', name: 'Experts' },
-    { path: '/reservations', name: 'My Reservations' },
-    { path: '/', name: 'Reserve an Expert' },
-    { path: '/experts', name: 'Create an Expert' },
-    { path: '/delete', name: 'Delete an Expert' },
-  ];
-
   const [error, setError] = useState('');
   const handleLogout = async () => {
     try {

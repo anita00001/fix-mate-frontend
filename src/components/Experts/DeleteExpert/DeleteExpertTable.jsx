@@ -1,8 +1,6 @@
+import React from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Sidebar from './Sidebar';
-import { fetchExperts, toggleRemoveExpert } from '../redux/Experts/expertsSlice';
+import PropTypes from 'prop-types';
 
 const customStyles = {
   headCells: {
@@ -11,7 +9,6 @@ const customStyles = {
       backgroundColor: '#98bf11',
     },
   },
-
 };
 
 createTheme('solarized', {
@@ -27,24 +24,14 @@ createTheme('solarized', {
     disabled: 'rgba(0,0,0,.12)',
   },
 });
-function DeleteExpert() {
-  const dispatch = useDispatch();
-  const { experts } = useSelector((state) => state.experts);
 
-  useEffect(() => {
-    dispatch(fetchExperts());
-  }, [dispatch]);
-
+function DeleteExpertTable({ experts, onToggleRemove }) {
   const formattedData = experts.map((expert) => ({
     id: expert.id,
     name: `${expert.first_name} ${expert.last_name}`,
     specialization: expert.name,
     removed: expert.removed,
   }));
-
-  const handleToggleRemove = (expertId) => {
-    dispatch(toggleRemoveExpert(expertId));
-  };
 
   const columns = [
     {
@@ -67,7 +54,7 @@ function DeleteExpert() {
         <button
           type="button"
           className="bg-red-500 px-4 py-2 rounded text-white hover:bg-white hover:text-red-500 hover:transition-colors hover:border hover:border-red-500"
-          onClick={() => handleToggleRemove(row.id)}
+          onClick={() => onToggleRemove(row.id)}
         >
           Remove
         </button>
@@ -76,28 +63,31 @@ function DeleteExpert() {
   ];
 
   return (
-    <>
-      <Sidebar />
-      <div className="container">
-        <div className="page md:px-0 px-4 pt-8">
-          <h1>
-            Delete Expert
-          </h1>
-          <p className="text mb-10 text-center text ">
-            These are the list of experts where you can remove the expert.
-          </p>
-          <DataTable
-            columns={columns}
-            data={formattedData}
-            pagination
-            responsive
-            customStyles={customStyles}
-            theme="solarized"
-            fixedHeader
-          />
-        </div>
-      </div>
-    </>
+    <DataTable
+      columns={columns}
+      data={formattedData}
+      pagination
+      responsive
+      customStyles={customStyles}
+      theme="solarized"
+      fixedHeader
+    />
   );
 }
-export default DeleteExpert;
+
+export default DeleteExpertTable;
+
+DeleteExpertTable.propTypes = {
+  experts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    experience: PropTypes.string.isRequired,
+    fee: PropTypes.string.isRequired,
+    status: PropTypes.bool.isRequired,
+    specialization_id: PropTypes.number.isRequired,
+  })).isRequired,
+  onToggleRemove: PropTypes.func.isRequired,
+};

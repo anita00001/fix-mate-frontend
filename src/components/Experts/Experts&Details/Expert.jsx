@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { fetchExperts } from '../redux/Experts/expertsSlice';
-import Sidebar from './Sidebar';
-import '../styles/Experts.css';
+import { fetchExperts } from '../../../redux/Experts/expertsSlice';
+import Sidebar from '../../Navigation/Sidebar';
+import '../../../styles/Experts.css';
 
 const Experts = () => {
   const dispatch = useDispatch();

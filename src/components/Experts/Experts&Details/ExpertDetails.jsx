@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchExperts } from '../redux/Experts/expertsSlice';
-import Sidebar from './Sidebar';
+import { fetchExperts } from '../../../redux/Experts/expertsSlice';
+import Sidebar from '../../Navigation/Sidebar';
 
 const ExpertDetails = () => {
   const dispatch = useDispatch();
