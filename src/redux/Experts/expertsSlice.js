@@ -45,10 +45,11 @@ const expertsSlice = createSlice({
         state.loading = false;
         state.error = 'Error fetching experts';
       }).addCase(toggleRemoveExpert.fulfilled, (state, action) => {
-        const updatedExperts = state.experts.filter((expert) => expert.id !== action.payload);
+        // Find the expert in the state and update its removed status based on the returned ID
+        const experts = state.experts.filter((expert) => expert.id !== action.payload);
         return {
           ...state,
-          updatedExperts,
+          experts,
         };
       });
   },
