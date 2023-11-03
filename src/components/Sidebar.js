@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   const navLinks = [
     { path: '/', name: 'Experts' },
-    { path: '/', name: 'My Reservations' },
+    { path: '/reservations', name: 'My Reservations' },
     { path: '/', name: 'Reserve an Expert' },
     { path: '/', name: 'Create an Expert' },
     { path: '/', name: 'Delete an Expert' },
@@ -24,6 +24,7 @@ const Sidebar = () => {
         type="button"
         className="closeSidebar sidebarBtn"
         onClick={displayHideNavbar}
+        aria-label={navClose ? 'Open Sidebar' : 'Close Sidebar'}
       >
         <HiOutlineMenuAlt4 className="text-2xl" />
       </button>
@@ -35,6 +36,7 @@ const Sidebar = () => {
           type="button"
           className="closeSidebar sidebarBtn"
           onClick={displayHideNavbar}
+          aria-label={navClose ? 'Close Sidebar' : 'Open Sidebar'}
         >
           <AiOutlineClose className="text-2xl" />
         </button>
