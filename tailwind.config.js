@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+      },
       colors: {
         primary: '#98bf11',
       },

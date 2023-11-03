@@ -1,13 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const url = 'http://127.0.0.1:4000';
+import baseURL from '../apiConfig';
 
 export const fetchExperts = createAsyncThunk(
   'experts/fetchExperts',
   async () => {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(baseURL);
       return response.data;
     } catch (error) {
       throw Error('Error fetching experts');
@@ -21,7 +20,7 @@ const initialState = {
   error: null,
 };
 
-const ExpertsSlice = createSlice({
+const expertsSlice = createSlice({
   name: 'experts',
   initialState,
   reducers: {},
@@ -44,4 +43,4 @@ const ExpertsSlice = createSlice({
   },
 });
 
-export default ExpertsSlice.reducer;
+export default expertsSlice.reducer;
