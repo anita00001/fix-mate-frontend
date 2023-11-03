@@ -49,6 +49,7 @@ const Reservations = () => {
     {
       name: 'id',
       selector: (row) => row.id,
+      sortable: true,
     },
     {
       name: 'Expert Name',

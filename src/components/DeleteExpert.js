@@ -55,16 +55,21 @@ function DeleteExpert() {
     {
       name: 'Name',
       selector: (row) => row.name,
-    }, {
+    },
+    {
       name: 'Specialization',
       selector: (row) => row.specialization,
     },
     {
-      name: 'Removed',
+      name: 'Action',
       selector: (row) => row.removed,
       cell: (row) => (
-        <button type="button" onClick={() => handleToggleRemove(row.id)}>
-          {row.removed ? 'Restore' : 'Remove'}
+        <button
+          type="button"
+          className="bg-red-500 px-4 py-2 rounded text-white hover:bg-white hover:text-red-500 hover:transition-colors hover:border hover:border-red-500"
+          onClick={() => handleToggleRemove(row.id)}
+        >
+          Remove
         </button>
       ),
     },
@@ -73,12 +78,12 @@ function DeleteExpert() {
   return (
     <>
       <Sidebar />
-      <div className="contianer">
+      <div className="container">
         <div className="page md:px-0 px-4 pt-8">
           <h1>
             Delete Expert
           </h1>
-          <p className="text mb-10 text-center text-white ">
+          <p className="text mb-10 text-center text ">
             These are the list of experts where you can remove the expert.
           </p>
           <DataTable
