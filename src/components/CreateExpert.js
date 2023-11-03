@@ -87,6 +87,15 @@ const CreateExpert = () => {
           value={formData.fee}
           onChange={handleChange}
         />
+        <label htmlFor="status">
+          Availability:
+          <input
+            type="checkbox"
+            name="status"
+            checked={formData.status}
+            onChange={handleChange}
+          />
+        </label>
         <button type="submit" className="submit-btn">Create a new Expert</button>
       </form>
     </section>
