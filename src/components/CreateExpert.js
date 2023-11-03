@@ -96,6 +96,23 @@ const CreateExpert = () => {
             onChange={handleChange}
           />
         </label>
+        <select
+          name="specialization_id"
+          required
+          value={formData.specialization_id}
+          onChange={handleChange}
+        >
+          <option value="">Select Specialization</option>
+          <option value="1">Electrical Engineer</option>
+          <option value="2">Plumber</option>
+          <option value="3">Carpenter</option>
+          <option value="4">Painter</option>
+          <option value="5">Mechanic</option>
+          <option value="6">Architect</option>
+          <option value="7">Interior Designer</option>
+          <option value="8">Civil Engineer</option>
+          <option value="9">Gardener</option>
+        </select>
         <button type="submit" className="submit-btn">Create a new Expert</button>
       </form>
     </section>
