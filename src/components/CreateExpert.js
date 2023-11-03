@@ -23,16 +23,32 @@ const CreateExpert = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormData({
-      first_name: '',
-      last_name: '',
-      address: '',
-      email: '',
-      experience: '',
-      fee: '',
-      status: true,
-      specialization_id: '',
-    });
+
+    try {
+      const response = await fetch('http://127.0.0.1:4000/api/v1/experts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        setFormData({
+          first_name: '',
+          last_name: '',
+          address: '',
+          email: '',
+          experience: '',
+          fee: '',
+          status: true,
+          specialization_id: '',
+        });
+      } else {
+        console.error('Failed to send data to the API');
+      }
+    } catch (error) {
+      console.error('Error occurred while sending data:', error);
+    }
   };
 
   return (
