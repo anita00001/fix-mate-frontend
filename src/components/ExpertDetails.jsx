@@ -19,24 +19,39 @@ const ExpertDetails = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-100">
       <Sidebar />
-      <div className="flex items-center justify-center">
+      <div className="flex min-h-screen flex-col items-center justify-center p-6">
         {experts.map((expert) => (
-          <div key={expert.id}>
-            <p>{expert.first_name}</p>
-            <p>{expert.last_name}</p>
-            <p>{expert.email}</p>
-            <p>{expert.address}</p>
-            <p>{expert.experience}</p>
+          <div
+            key={expert.id}
+            className="m-4 max-w-md rounded-lg bg-white p-4 shadow-lg"
+          >
+            <h2 className="text-2xl font-semibold text-blue-600">
+              {expert.first_name}
+              {' '}
+              {expert.last_name}
+            </h2>
+            <p className="text-gray-600">{expert.email}</p>
+            <p className="text-gray-600">{expert.address}</p>
+            <p className="text-gray-600">
+              Experience:
+              {' '}
+              {expert.experience}
+              {' '}
+              years
+            </p>
             {renderStatus(expert)}
-            <p>{expert.fee}</p>
-            <p>{expert.name}</p>
-            <p>{expert.description}</p>
+            <p className="font-semibold text-green-600">
+              Fee: $
+              {expert.fee}
+            </p>
+            <p className="text-gray-600">{expert.name}</p>
+            <p className="text-gray-600">{expert.description}</p>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
