@@ -6,6 +6,7 @@ import Reservations from './components/Reservations';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/loginForm';
 import Authenticate from './components/Authenticate';
+import DeleteExpert from './components/DeleteExpert';
 
 const isUserLoggedIn = () => {
   const userPassport = localStorage.getItem('userPassport');
@@ -38,6 +39,10 @@ function App() {
         <Route
           path="/experts"
           element={<CheckAuthentication element={<CreateExpert />} />}
+        />
+        <Route
+          path="/delete"
+          element={<CheckAuthentication element={<DeleteExpert />} />}
         />
       </Routes>
     </>
