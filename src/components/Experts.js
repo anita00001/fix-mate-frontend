@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { fetchExperts } from '../redux/Experts/expertsSlice';
 import Sidebar from './Sidebar';
@@ -30,16 +31,21 @@ const Experts = () => {
               </div>
               {'Name: '}
               {expert.first_name}
-              {' '}
               {expert.last_name}
               <br />
               {'Specialization: '}
-              {expert.name }
+              {expert.name}
               <br />
               {'Status: '}
-              {expert.status ? 'Available' : 'Not available, please check later'}
+              {expert.status
+                ? 'Available'
+                : 'Not available, please check later'}
               <br />
-              <button type="submit" className="detail-btn">Details</button>
+              <Link to={`/experts/${expert.id}`}>
+                <button type="submit" className="detail-btn">
+                  Details
+                </button>
+              </Link>
             </li>
           ))}
         </ul>
