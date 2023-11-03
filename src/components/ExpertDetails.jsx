@@ -50,6 +50,9 @@ const ExpertDetails = () => {
             <p className="text-gray-600">{expert.description}</p>
           </div>
         ))}
+        <div className="border border-full rounded-full py-3 px-2 bg-green-500">
+          <button type="button">Reserve</button>
+        </div>
       </div>
     </div>
   );
