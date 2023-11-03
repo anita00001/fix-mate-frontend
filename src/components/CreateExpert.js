@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Sidebar from './Sidebar';
 import '../styles/Experts.css';
 
 const CreateExpert = () => {
@@ -44,15 +45,16 @@ const CreateExpert = () => {
           specialization_id: '',
         });
       } else {
-        console.error('Failed to send data to the API');
+        throw new Error('Something went wrong');
       }
     } catch (error) {
-      console.error('Error occurred while sending data:', error);
+      throw new Error('Error occurred while sending data:');
     }
   };
 
   return (
     <section className="create-expert-page">
+      <Sidebar />
       <h1>Create an Expert</h1>
       <form onSubmit={handleSubmit}>
         <input

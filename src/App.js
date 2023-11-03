@@ -6,7 +6,6 @@ import Reservations from './components/Reservations';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/loginForm';
 import Authenticate from './components/Authenticate';
-import Sidebar from './components/Sidebar';
 
 const isUserLoggedIn = () => {
   const userPassport = localStorage.getItem('userPassport');
@@ -23,7 +22,6 @@ const CheckAuthentication = ({ element }) => {
 function App() {
   return (
     <>
-      <Sidebar />
       <Routes>
         <Route path="/authenticate" element={<Authenticate />} />
         <Route path="*" element={<Authenticate />} />

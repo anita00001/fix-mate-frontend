@@ -16,7 +16,7 @@ const Sidebar = () => {
     { path: '/', name: 'Experts' },
     { path: '/reservations', name: 'My Reservations' },
     { path: '/', name: 'Reserve an Expert' },
-    { path: '/', name: 'Create an Expert' },
+    { path: '/experts', name: 'Create an Expert' },
     { path: '/', name: 'Delete an Expert' },
   ];
 
