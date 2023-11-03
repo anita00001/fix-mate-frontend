@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm';
 import LoginForm from './components/loginForm';
 import Authenticate from './components/Authenticate';
 import DeleteExpert from './components/DeleteExpert';
+import ExpertDetails from './components/ExpertDetails';
 
 const isUserLoggedIn = () => {
   const userPassport = localStorage.getItem('userPassport');
@@ -39,6 +40,10 @@ function App() {
         <Route
           path="/experts"
           element={<CheckAuthentication element={<CreateExpert />} />}
+        />
+        <Route
+          path="/experts/:id"
+          element={<CheckAuthentication element={<ExpertDetails />} />}
         />
         <Route
           path="/delete"
