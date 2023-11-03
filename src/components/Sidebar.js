@@ -17,7 +17,7 @@ const Sidebar = () => {
     { path: '/reservations', name: 'My Reservations' },
     { path: '/', name: 'Reserve an Expert' },
     { path: '/experts', name: 'Create an Expert' },
-    { path: '/', name: 'Delete an Expert' },
+    { path: '/delete', name: 'Delete an Expert' },
   ];
 
   const [error, setError] = useState('');

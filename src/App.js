@@ -6,6 +6,7 @@ import Reservations from './components/Reservations';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/loginForm';
 import Authenticate from './components/Authenticate';
+import DeleteExpert from './components/DeleteExpert';
 import ExpertDetails from './components/ExpertDetails';
 
 const isUserLoggedIn = () => {
@@ -43,6 +44,10 @@ function App() {
         <Route
           path="/experts/:id"
           element={<CheckAuthentication element={<ExpertDetails />} />}
+        />
+        <Route
+          path="/delete"
+          element={<CheckAuthentication element={<DeleteExpert />} />}
         />
       </Routes>
     </>

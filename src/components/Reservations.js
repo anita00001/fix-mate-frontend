@@ -49,6 +49,7 @@ const Reservations = () => {
     {
       name: 'id',
       selector: (row) => row.id,
+      sortable: true,
     },
     {
       name: 'Expert Name',
@@ -78,9 +79,12 @@ const Reservations = () => {
 
   if (loading === true) {
     return (
-      <div className="container page flex justify-center items-center">
-        Loading your reservations...
-      </div>
+      <>
+        <Sidebar />
+        <div className="container page flex justify-center items-center">
+          Loading your reservations...
+        </div>
+      </>
     );
   }
 
