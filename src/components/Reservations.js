@@ -78,9 +78,12 @@ const Reservations = () => {
 
   if (loading === true) {
     return (
-      <div className="container page flex justify-center items-center">
-        Loading your reservations...
-      </div>
+      <>
+        <Sidebar />
+        <div className="container page flex justify-center items-center">
+          Loading your reservations...
+        </div>
+      </>
     );
   }
 
