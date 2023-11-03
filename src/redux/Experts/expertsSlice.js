@@ -15,7 +15,7 @@ export const fetchExperts = createAsyncThunk(
 );
 
 export const toggleRemoveExpert = createAsyncThunk('experts/removeExpert', async (id) => {
-  await axios.put(`${baseURL}/experts/${id}/toggle_remove`);
+  await axios.put(`${baseURL}api/v1/experts/${id}/toggle_remove`);
   return id;
 });
 
@@ -45,13 +45,11 @@ const expertsSlice = createSlice({
         state.loading = false;
         state.error = 'Error fetching experts';
       }).addCase(toggleRemoveExpert.fulfilled, (state, action) => {
-        // Find the expert in the state and update its removed status based on the returned ID
-        const expertId = action.payload;
-        const expertUpdate = state.find((expert) => expert.id === expertId);
-        if (expertUpdate) {
-          // Toggle the 'removed' status
-          expertUpdate.removed = !expertUpdate.removed;
-        }
+        const updatedExperts = state.experts.filter((expert) => expert.id !== action.payload);
+        return {
+          ...state,
+          updatedExperts,
+        };
       });
   },
 });
