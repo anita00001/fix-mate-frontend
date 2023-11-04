@@ -30,7 +30,6 @@ const Experts = () => {
           spaceBetween={50}
           slidesPerView={1}
           navigation
-          pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           breakpoints={{
             640: {

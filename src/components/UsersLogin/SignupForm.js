@@ -98,7 +98,7 @@ function SignupForm() {
               </button>
               <p className="text-sm font-light text-gray-500 mt-3">
                 Have an account already?
-                <Link to="/login" className="font-bold hover:text-lime-600"> Login</Link>
+                <Link to="/login" className="font-bold hover:text-primary"> Login</Link>
               </p>
             </form>
           </div>
