@@ -12,7 +12,7 @@ export const loginDetails = createAsyncThunk('authentication/login', async (iden
     });
     const authorizationToken = response.headers.authorization;
     localStorage.setItem('userPassport', authorizationToken);
-    return authorizationToken;
+    return response.data;
   } catch (error) {
     throw new Error('Login failed. Check your credentials');
   }

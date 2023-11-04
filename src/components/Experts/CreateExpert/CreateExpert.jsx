@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import baseURL from '../../../redux/apiConfig';
 import Sidebar from '../../Navigation/Sidebar';
 import '../../../styles/Experts.css';
 import CreateExpertForm from './CreateExpertForm';
@@ -27,7 +28,7 @@ const CreateExpert = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://127.0.0.1:4000/api/v1/experts', {
+      const response = await fetch(`${baseURL}api/v1/experts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

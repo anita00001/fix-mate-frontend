@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit} id="expert-form">
     <input
       type="text"
       name="first_name"

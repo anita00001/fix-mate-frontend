@@ -9,6 +9,8 @@ import baseURL from '../../redux/apiConfig';
 import navLinks from './index';
 
 const Sidebar = () => {
+  const userObject = localStorage.getItem('userPassport');
+  const jsonObject = JSON.parse(userObject);
   const [navClose, setNavClosed] = useState(false);
 
   const displayHideNavbar = () => setNavClosed(!navClose);
@@ -17,7 +19,7 @@ const Sidebar = () => {
     try {
       const response = await axios.delete(`${baseURL}logout`, {
         headers: {
-          Authorization: localStorage.getItem('userPassport'),
+          Authorization: jsonObject.token,
         },
       });
 
@@ -54,7 +56,11 @@ const Sidebar = () => {
           <AiOutlineClose className="text-2xl" />
         </button>
 
-        <div className="px-4 py-6 mt-6">
+        <div className="px-2 py-2 mt-3">
+          <div className="text-lime-600 font-bold">
+            <span className="text-black">Welcome back </span>
+            {jsonObject.name}
+          </div>
           <span className="grid h-20 w-20  place-content-center text-center rounded-lg text-slate-900 text-3xl pl-16">
             FixMate
           </span>

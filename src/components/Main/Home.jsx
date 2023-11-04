@@ -9,6 +9,7 @@ import LoginForm from '../UsersLogin/loginForm';
 import Authenticate from '../UsersLogin/Authenticate';
 import DeleteExpert from '../Experts/DeleteExpert/DeleteExpert';
 import ExpertDetails from '../Experts/Experts&Details/ExpertDetails';
+import Specialize from '../Specializations/Specialize';
 
 const isUserLoggedIn = () => {
   const userPassport = localStorage.getItem('userPassport');
@@ -48,6 +49,10 @@ const Home = () => (
       <Route
         path="/delete"
         element={<CheckAuthentication element={<DeleteExpert />} />}
+      />
+      <Route
+        path="/specializations"
+        element={<CheckAuthentication element={<Specialize />} />}
       />
     </Routes>
   </>
