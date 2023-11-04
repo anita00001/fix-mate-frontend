@@ -49,7 +49,7 @@ const Sidebar = () => {
       >
         <button
           type="button"
-          className="closeSidebar sidebarBtn"
+          className="sidebarBtn close"
           onClick={displayHideNavbar}
           aria-label={navClose ? 'Close Sidebar' : 'Open Sidebar'}
         >

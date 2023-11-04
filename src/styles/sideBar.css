@@ -19,6 +19,14 @@
   z-index: 15;
 }
 
+.close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1rem;
+  z-index: 15;
+}
+
 .sideBarHidden {
   transform: translateX(-101%);
   z-index: 99;
