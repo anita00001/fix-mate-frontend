@@ -30,11 +30,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
     font-size: 20px;
     padding: 1rem 1.8rem;
   }
+
   .swiper-button-prev::after {
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
