@@ -48,7 +48,7 @@ function SignupForm() {
               {signupError && <p className="text-red-700 bg-red-50 p-2 mb-3">Passwords cannot be less than six(6) characters.</p>}
               {!passwordMatch && <p className="text-red-700 bg-red-50 p-2 mb-3">Passwords do not match.</p>}
               {signupSuccess && (
-                <p className="text-green-500 bg-green-100 p-2 mb-3">Signup successful! You can now</p>
+                <p className="text-green-500 bg-green-100 p-2 mb-3">Signup successful! You can login now</p>
               )}
               <div className="mb-4">
                 <input
@@ -98,7 +98,7 @@ function SignupForm() {
               </button>
               <p className="text-sm font-light text-gray-500 mt-3">
                 Have an account already?
-                <Link to="/login" className="font-bold hover:text-lime-600"> Login</Link>
+                <Link to="/login" className="font-bold hover:text-primary"> Login</Link>
               </p>
             </form>
           </div>
