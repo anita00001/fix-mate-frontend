@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
   <form
     onSubmit={handleSubmit}
-    className="mx-auto mt-5 flex h-full w-[100%] flex-col items-center rounded px-4 py-3 shadow-md md:grid md:grid-cols-2 md:items-start md:gap-10"
+    className="mx-auto mt-5 flex h-full w-[100%] flex-col items-center rounded bg-white px-4 py-3 shadow-md md:grid md:grid-cols-2 md:items-start md:gap-10"
   >
     <motion.input
       initial={{ scale: 0 }}

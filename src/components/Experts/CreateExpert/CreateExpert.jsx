@@ -63,7 +63,11 @@ const CreateExpert = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="mt-5 flex h-full flex-col items-center justify-center"
+        className="flex h-screen w-screen items-center flex-col justify-center bg-cover"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/images/bg.jpg')",
+        }}
       >
         <motion.h1
           initial={{ scale: 0 }}
