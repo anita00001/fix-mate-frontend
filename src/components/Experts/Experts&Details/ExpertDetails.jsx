@@ -47,7 +47,7 @@ const ExpertDetails = () => {
             >
               <motion.img
                 alt={expert.first_name}
-                src="/images/Ansar.jpg"
+                src="/images/demo.jpg"
                 className="h-64 w-[80%] rounded-lg object-cover shadow-lg md:h-full md:w-1/2"
                 whileHover={{ scale: 1.1 }}
               />

@@ -61,7 +61,7 @@ const Experts = () => {
                 >
                   <img
                     alt={expert.first_name}
-                    src="./images/Ansar.jpg"
+                    src="./images/demo.jpg"
                     className="rounded-lg shadow-lg"
                   />
                   <span className="font-thin text-slate-500">
