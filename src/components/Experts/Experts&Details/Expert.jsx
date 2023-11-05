@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { fetchExperts } from '../../../redux/Experts/expertsSlice';
@@ -22,8 +23,12 @@ const Experts = () => {
   return (
     <>
       <Sidebar />
-      <div className="page">
-        <h1>Meet our Experts</h1>
+      <div className="page sm:mt-12">
+        <h1 className="text-3xl font-bold ">Meet our Experts</h1>
+        <p className="text-lg text-gray-600">Please select a Experts</p>
+        <span className="font-thin text-slate-500">
+          ............................
+        </span>
         <Swiper
           className="container"
           modules={[Navigation, Pagination, Scrollbar]}
@@ -31,6 +36,7 @@ const Experts = () => {
           slidesPerView={1}
           navigation
           scrollbar={{ draggable: true }}
+          loop
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -43,11 +49,20 @@ const Experts = () => {
           {experts.map((expert) => (
             <SwiperSlide
               key={expert.id}
-              className="slide z-10 rounded hover:bg-green-100"
+              className="slide z-10 w-[80%] rounded  hover:bg-green-100"
             >
               <Link to={`/experts/${expert.id}`} className="w-3/6">
-                <div className="mx-auto mt-20 flex  flex-col items-center text-center ">
-                  <img alt={expert.first_name} src={expert.image} />
+                <motion.div
+                  initial={{ x: 300, opacity: 0, scale: 0.8 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 50 }}
+                  className="mx-auto mt-10 flex w-[60%] flex-col items-center text-center"
+                >
+                  <img
+                    alt={expert.first_name}
+                    src="./images/Ansar.jpg"
+                    className="rounded-full shadow-lg"
+                  />
                   <span className="font-thin text-slate-500">
                     ............................
                   </span>
@@ -65,7 +80,7 @@ const Experts = () => {
                   {'Status: '}
                   {expert.status ? 'Available' : 'Not available'}
                   <br />
-                </div>
+                </motion.div>
               </Link>
             </SwiperSlide>
           ))}
