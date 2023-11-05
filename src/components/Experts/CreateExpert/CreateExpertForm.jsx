@@ -18,7 +18,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="First Name"
       value={formData.first_name}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <motion.input
       initial={{ scale: 0 }}
@@ -30,7 +30,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="Last Name"
       value={formData.last_name}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <motion.input
       initial={{ scale: 0 }}
@@ -42,7 +42,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="Address"
       value={formData.address}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <motion.input
       initial={{ scale: 0 }}
@@ -54,7 +54,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="Email"
       value={formData.email}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <motion.input
       initial={{ scale: 0 }}
@@ -66,7 +66,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="Experience (Years)"
       value={formData.experience}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <motion.input
       initial={{ scale: 0 }}
@@ -78,7 +78,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       placeholder="Visit Fee ($)"
       value={formData.fee}
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none sm:w-full"
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
     />
     <label htmlFor="status" className="flex items-center">
       Availability:
