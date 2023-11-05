@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Link } from 'react-router-dom';
@@ -61,7 +62,7 @@ const Experts = () => {
                   <img
                     alt={expert.first_name}
                     src="./images/Ansar.jpg"
-                    className="rounded-full shadow-lg"
+                    className="rounded-lg shadow-lg"
                   />
                   <span className="font-thin text-slate-500">
                     ............................
