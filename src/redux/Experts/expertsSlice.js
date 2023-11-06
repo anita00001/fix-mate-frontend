@@ -6,7 +6,7 @@ export const fetchExperts = createAsyncThunk(
   'experts/fetchExperts',
   async () => {
     try {
-      const response = await axios.get(baseURL);
+      const response = await axios.get(`${baseURL}api/v1/experts`);
       return response.data;
     } catch (error) {
       throw Error('Error fetching experts');
