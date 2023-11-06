@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { PiFacebookLogoBold, PiInstagramLogoBold } from 'react-icons/pi';
+import { TiSocialTwitterCircular } from 'react-icons/ti';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
@@ -62,7 +64,7 @@ const Experts = () => {
                   <img
                     alt={expert.first_name}
                     src="./images/demo.jpg"
-                    className="rounded-lg shadow-lg"
+                    className="rounded-full shadow-lg"
                   />
                   <span className="font-thin text-slate-500">
                     ............................
@@ -81,6 +83,17 @@ const Experts = () => {
                   {'Status: '}
                   {expert.status ? 'Available' : 'Not available'}
                   <br />
+                  <div className="flex text-2xl opacity-50 mt-1">
+                    <span>
+                      <PiFacebookLogoBold />
+                    </span>
+                    <span>
+                      <TiSocialTwitterCircular />
+                    </span>
+                    <span>
+                      <PiInstagramLogoBold />
+                    </span>
+                  </div>
                 </motion.div>
               </Link>
             </SwiperSlide>
