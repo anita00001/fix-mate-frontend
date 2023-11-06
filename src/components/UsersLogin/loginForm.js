@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginDetails } from '../../redux/login/loginSlice';
+import Login from '../../assets/login.jpeg';
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -31,13 +33,35 @@ function LoginForm() {
   }, [loginData, navigate]);
 
   return (
-    <div className="bg-lime-100">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="font-bold text-gray-500 text-2xl mb-4">Login your account</h1>
+    <div className="relative min-h-screen">
+      <div
+        className="absolute inset-0 bg-lime-100"
+        style={{
+          backgroundImage: `url(${Login})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition:
+            window.innerWidth >= 640 ? 'center -150px' : 'center',
+          opacity: 0.5,
+        }}
+      />
+      <div className="relative mx-auto flex h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
+        <motion.div
+          className="w-full rounded-lg bg-white shadow dark:border sm:max-w-md md:mt-0 xl:p-0"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
+            <h1 className="mb-4 text-2xl font-bold text-gray-500">
+              Login your account
+            </h1>
             <form onSubmit={handleSubmit}>
-              {error && <p className="text-red-700 bg-red-50 p-2 mb-3">Login failed. Kindly check your credentials</p>}
+              {error && (
+                <p className="mb-3 bg-red-50 p-2 text-red-700">
+                  Login failed. Kindly check your credentials
+                </p>
+              )}
               <div className="mb-4">
                 <input
                   type="email"
@@ -46,7 +70,7 @@ function LoginForm() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full rounded-md border px-3 py-2"
                 />
               </div>
               <div className="mb-4">
@@ -57,19 +81,27 @@ function LoginForm() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full rounded-md border px-3 py-2"
                 />
               </div>
-              <button type="submit" className="w-full bg-lime-300 text-white hover:bg-lime-600 rounded-md py-2">
+              <motion.button
+                type="submit"
+                className="w-full rounded-md bg-lime-300 py-2 text-white hover:bg-lime-600"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Login
-              </button>
-              <p className="text-sm font-light text-gray-500 mt-3">
+              </motion.button>
+              <p className="mt-3 text-sm font-light text-gray-500">
                 Don’t have an account yet?
-                <Link to="/signup" className="font-bold hover:text-primary"> Register</Link>
+                <Link to="/signup" className="font-bold hover:text-primary">
+                  {' '}
+                  Register
+                </Link>
               </p>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
