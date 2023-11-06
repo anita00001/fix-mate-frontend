@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SpecializationDropdown from '../../Specializations/SpecializationDropdown';
 
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
+  const isFormComplete = Object.values(formData).every((value) => value !== '');
   const [workingTime, setWorkingTime] = useState(false);
 
   useEffect(() => {
@@ -118,21 +120,24 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
           <div
             className="toggle__dot absolute inset-y-0 left-0 h-4 w-4 rounded-full bg-white shadow transition-transform duration-300 ease-in-out"
             style={{
-              transform: formData.status ? 'translateX(1.5rem)' : 'translateX(0)',
+              transform: formData.status
+                ? 'translateX(1.5rem)'
+                : 'translateX(0)',
             }}
           />
         </div>
       </label>
 
       <SpecializationDropdown formData={formData} onChange={handleChange} />
-
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        type="submit"
-        className="mt-4 w-full rounded bg-primary px-8 py-2 font-bold text-white transition-colors hover:bg-primary"
-      >
-        Create an Expert
-      </motion.button>
+      <Link to={isFormComplete ? '/' : '#'}>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          type="submit"
+          className="mt-4 w-full rounded bg-primary px-8 py-2 font-bold text-white transition-colors hover:bg-primary"
+        >
+          Create an Expert
+        </motion.button>
+      </Link>
     </form>
   );
 };

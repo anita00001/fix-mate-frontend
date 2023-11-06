@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PiFacebookLogoBold, PiInstagramLogoBold } from 'react-icons/pi';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Link } from 'react-router-dom';
