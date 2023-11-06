@@ -9,7 +9,7 @@ import baseURL from '../../redux/apiConfig';
 import navLinks from './index';
 
 const Sidebar = () => {
-  const userObject = localStorage.getItem('userPassport');
+  const userObject = sessionStorage.getItem('userPassport');
   const jsonObject = JSON.parse(userObject);
   const [navClose, setNavClosed] = useState(false);
 
@@ -24,7 +24,7 @@ const Sidebar = () => {
       });
 
       if (response.status === 200) {
-        localStorage.removeItem('userPassport');
+        sessionStorage.removeItem('userPassport');
         window.location.href = '/login';
       }
     } catch (error) {
