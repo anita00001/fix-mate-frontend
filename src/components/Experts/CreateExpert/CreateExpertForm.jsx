@@ -91,21 +91,19 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       />
     </label>
 
-    <motion.select
+    <SpecializationDropdown formData={formData} onChange={handleChange} />
+
+    <motion.input
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 2 }}
-      name="specialization_id"
+      type="file"
+      name="image"
       required
-      value={formData.specialization_id}
+      placeholder="Image"
       onChange={handleChange}
-      className="focus:shadow-outline mb-4 w-full rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 transition-colors hover:bg-green-200 focus:outline-none"
-    >
-      <SpecializationDropdown
-        formData={formData}
-        onChange={handleChange}
-      />
-    </motion.select>
+      className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
+    />
 
     <motion.button
       whileHover={{ scale: 1.1 }}
@@ -129,6 +127,7 @@ CreateExpertForm.propTypes = {
     fee: PropTypes.number.isRequired,
     status: PropTypes.bool.isRequired,
     specialization_id: PropTypes.string.isRequired,
+    image: PropTypes.instanceOf(File),
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
