@@ -49,17 +49,10 @@ const CreateExpert = () => {
           specialization_id: '',
         });
       } else {
-        //     throw new Error('Something went wrong');
-        //   }
-        // } catch (error) {
-        //   throw new Error('Error occurred while sending data:');
-        // }
-        // } else {
-        const errorData = await response.json();
-        console.error(`Server responded with an error: ${errorData.message}`);
+        throw new Error('Something went wrong');
       }
     } catch (error) {
-      console.error('Error occurred while sending data:', error);
+      throw new Error('Error occurred while sending data:');
     }
   };
 

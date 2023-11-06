@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SpecializationDropdown from '../../Specializations/SpecializationDropdown';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
+import SpecializationDropdown from '../../Specializations/SpecializationDropdown';
 
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
   <form
@@ -102,13 +100,13 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => (
       value={formData.specialization_id}
       onChange={handleChange}
       className="focus:shadow-outline mb-4 w-full rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 transition-colors hover:bg-green-200 focus:outline-none"
-    >  
-    <SpecializationDropdown
-      formData={formData}
-      onChange={handleChange}
-    />
+    >
+      <SpecializationDropdown
+        formData={formData}
+        onChange={handleChange}
+      />
     </motion.select>
-  
+
     <motion.button
       whileHover={{ scale: 1.1 }}
       type="submit"
