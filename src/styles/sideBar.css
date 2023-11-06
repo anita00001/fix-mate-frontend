@@ -3,7 +3,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 99;
   transition: all 0.4s ease-in-out;
-  width: 50%;
+  width: 100%;
 }
 
 .sideBar a.active {

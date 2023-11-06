@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { motion } from 'framer-motion';
 import baseURL from '../../../redux/apiConfig';
 import Sidebar from '../../Navigation/Sidebar';
 import '../../../styles/Experts.css';
@@ -55,15 +57,40 @@ const CreateExpert = () => {
   };
 
   return (
-    <section className="create-expert-page">
+    <>
       <Sidebar />
-      <h1>Create an Expert</h1>
-      <CreateExpertForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-    </section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        className="flex h-screen w-screen items-center flex-col justify-center bg-cover"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/images/bg.jpg')",
+        }}
+      >
+        <motion.h1
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2 }}
+          className="mb-4 text-2xl font-bold"
+        >
+          Create an Expert
+        </motion.h1>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2 }}
+          className="mt-5 flex items-center justify-center"
+        >
+          <CreateExpertForm
+            formData={formData}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
+        </motion.div>
+      </motion.section>
+    </>
   );
 };
 
