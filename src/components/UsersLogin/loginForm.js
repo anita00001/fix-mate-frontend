@@ -12,6 +12,13 @@ function LoginForm() {
   const error = useSelector((state) => state.login.error);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,14 +48,13 @@ function LoginForm() {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition:
-            window.innerWidth >= 640 ? 'center -150px' : 'center',
-          opacity: 0.5,
+            windowWidth >= 640 ? 'center -400px' : 'center',
         }}
       />
       <div className="relative mx-auto flex h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
         <motion.div
           className="w-full rounded-lg bg-white shadow dark:border sm:max-w-md md:mt-0 xl:p-0"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >

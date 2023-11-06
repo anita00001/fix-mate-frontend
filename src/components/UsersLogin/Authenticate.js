@@ -9,7 +9,7 @@ export default function Authenticate() {
     <motion.div
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 4 }}
+      transition={{ duration: 2 }}
     >
       <div className="backgroundImage flex h-screen flex-col items-center justify-center bg-cover bg-center">
         <div className="mt-96 rounded-2xl bg-black bg-opacity-50 p-4 text-center shadow-lg">
