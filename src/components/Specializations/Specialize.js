@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Sidebar from '../Navigation/Sidebar';
-import { specialDetails } from '../../redux/Specializations/specialitiesSlice';
+import { fetchSpecializations, specialDetails } from '../../redux/Specializations/specialitiesSlice';
 
 export default function Specialize() {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ export default function Specialize() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(specialDetails({ name, description }));
+    dispatch(fetchSpecializations());
     setName('');
     setDescription('');
   };
