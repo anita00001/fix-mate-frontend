@@ -35,7 +35,7 @@ function ReservationForm() {
   return (
     <div className="h-screen bg-cover" style={{ backgroundImage: 'url("./images/reservation.jpg")' }}>
       <div className="w-full h-screen flex flex-col justify-center items-center bg-black p-4 text-center opacity-75">
-        <div className="w-full flex">
+        <div className="absolute top-0 left-0 m-4">
           <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
             X
           </button>
