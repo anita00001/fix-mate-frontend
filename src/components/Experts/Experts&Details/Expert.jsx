@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PiFacebookLogoBold, PiInstagramLogoBold } from 'react-icons/pi';
@@ -17,10 +17,28 @@ import 'swiper/css/pagination';
 const Experts = () => {
   const dispatch = useDispatch();
   const experts = useSelector((state) => state.experts.experts);
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    dispatch(fetchExperts());
+    dispatch(fetchExperts()).then(() => setLoading(false));
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <>

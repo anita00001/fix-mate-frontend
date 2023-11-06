@@ -1,4 +1,5 @@
 import DataTable from 'react-data-table-component';
+import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../../redux/Reservations/reservationsSlice';
@@ -25,14 +26,20 @@ const Reservations = () => {
     user: reservation.user.name,
   }));
 
-  if (loading === true) {
+  if (loading) {
     return (
-      <>
-        <Sidebar />
-        <div className="page container flex items-center justify-center">
-          Loading your reservations...
-        </div>
-      </>
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
     );
   }
 

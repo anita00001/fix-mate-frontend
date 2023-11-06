@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import baseURL from '../../../redux/apiConfig';
 import Sidebar from '../../Navigation/Sidebar';
@@ -6,6 +6,12 @@ import '../../../styles/Experts.css';
 import CreateExpertForm from './CreateExpertForm';
 
 const CreateExpert = () => {
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -54,6 +60,23 @@ const CreateExpert = () => {
       throw new Error('Error occurred while sending data:');
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <>

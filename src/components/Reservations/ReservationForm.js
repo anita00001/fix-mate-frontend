@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { queryExpertDetails } from '../../redux/QueryExperts/queryExpertsSlice';
@@ -31,6 +32,23 @@ function ReservationForm() {
     setCity('');
     setReserveDate('');
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen bg-cover" style={{ backgroundImage: 'url("./images/reservation.jpg")' }}>

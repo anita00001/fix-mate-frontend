@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import Sidebar from '../../Navigation/Sidebar';
 import { fetchExperts, toggleRemoveExpert } from '../../../redux/Experts/expertsSlice';
@@ -9,14 +8,32 @@ import DeleteExpertTable from './DeleteExpertTable';
 function DeleteExpert() {
   const dispatch = useDispatch();
   const { experts } = useSelector((state) => state.experts);
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    dispatch(fetchExperts());
+    dispatch(fetchExperts()).then(() => setLoading(false));
   }, [dispatch]);
 
   const handleToggleRemove = (expertId) => {
     dispatch(toggleRemoveExpert(expertId));
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <>
