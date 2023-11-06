@@ -9,7 +9,7 @@ import baseURL from '../../redux/apiConfig';
 import navLinks from './index';
 
 const Sidebar = () => {
-  const userObject = localStorage.getItem('userPassport');
+  const userObject = sessionStorage.getItem('userPassport');
   const jsonObject = JSON.parse(userObject);
   const [navClose, setNavClosed] = useState(false);
 
@@ -24,7 +24,7 @@ const Sidebar = () => {
       });
 
       if (response.status === 200) {
-        localStorage.removeItem('userPassport');
+        sessionStorage.removeItem('userPassport');
         window.location.href = '/login';
       }
     } catch (error) {
@@ -57,8 +57,8 @@ const Sidebar = () => {
         </button>
 
         <div className="mt-3 px-2 py-2">
-          <div className="font-bold text-primary">
-            <span className="text-black">Welcome back </span>
+          <div className="font-bold text-primary text-center">
+            <span className="text-black mr-1">Welcome back  </span>
             {jsonObject.name}
           </div>
           <span className="grid h-20 w-20  place-content-center rounded-lg pl-16 text-center text-3xl text-slate-900">
