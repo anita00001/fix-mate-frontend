@@ -21,11 +21,11 @@ function LoginForm() {
   useEffect(() => {
     if (loginData) {
       const authorizationToken = {
-        token: localStorage.getItem('userPassport'),
+        token: sessionStorage.getItem('userPassport'),
         id: loginData.status.data.id,
         name: loginData.status.data.name,
       };
-      localStorage.setItem('userPassport', JSON.stringify(authorizationToken));
+      sessionStorage.setItem('userPassport', JSON.stringify(authorizationToken));
       navigate('/');
     }
   }, [loginData, navigate]);
