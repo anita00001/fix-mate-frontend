@@ -26,7 +26,7 @@ export const specialDetails = createAsyncThunk('specialization/', async (descrip
   }
 });
 
-const specializeSlice = createSlice({
+const specialitiesSlice = createSlice({
   name: 'specialization',
   initialState: {
     specializations: [],
@@ -68,4 +68,4 @@ const specializeSlice = createSlice({
   },
 });
 
-export default specializeSlice.reducer;
+export default specialitiesSlice.reducer;
