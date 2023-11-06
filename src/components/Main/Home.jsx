@@ -10,9 +10,10 @@ import Authenticate from '../UsersLogin/Authenticate';
 import DeleteExpert from '../Experts/DeleteExpert/DeleteExpert';
 import ExpertDetails from '../Experts/Experts&Details/ExpertDetails';
 import Specialize from '../Specializations/Specialize';
+import ReservationForm from '../Reservations/ReservationForm';
 
 const isUserLoggedIn = () => {
-  const userPassport = localStorage.getItem('userPassport');
+  const userPassport = sessionStorage.getItem('userPassport');
   return !!userPassport;
 };
 
@@ -53,6 +54,10 @@ const Home = () => (
       <Route
         path="/specializations"
         element={<CheckAuthentication element={<Specialize />} />}
+      />
+      <Route
+        path="/new_reservation"
+        element={<CheckAuthentication element={<ReservationForm />} />}
       />
     </Routes>
   </>
