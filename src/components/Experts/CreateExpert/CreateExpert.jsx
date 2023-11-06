@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import baseURL from '../../../redux/apiConfig';
 import Sidebar from '../../Navigation/Sidebar';

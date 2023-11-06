@@ -80,7 +80,7 @@ const ExpertDetails = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             type="button"
-            className="mt-4 rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700 md:mr-64 md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
+            className="hover:g-primary mt-4 rounded bg-primary px-4 py-2 text-white md:mr-64 md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
           >
             Reserve
           </motion.button>
@@ -88,7 +88,7 @@ const ExpertDetails = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => navigate(-1)}
-            className="mt-4 rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700 md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
+            className="hover:g-primary mt-4 rounded bg-primary px-4 py-2 text-white md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
