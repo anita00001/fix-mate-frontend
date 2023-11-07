@@ -1,5 +1,11 @@
 import { createTheme } from 'react-data-table-component';
 
+const renderCell = (cellData) => (cellData || 'N/A');
+const renderImageCell = (cellData) => (
+  <div className="my-4 flex h-10 w-10 items-center justify-center bg-contain">
+    <img src={cellData} alt={cellData} />
+  </div>
+);
 export const customStyles = {
   headCells: {
     style: {
@@ -28,30 +34,35 @@ export const columns = [
     name: 'id',
     selector: (row) => row.id,
     sortable: true,
+  }, {
+    name: 'Image',
+    selector: (row) => row.image_url,
+    cell: (row) => renderImageCell(row.image_url),
   },
   {
     name: 'Expert Name',
     selector: (row) => row.expert,
+    cell: (row) => renderCell(row.expert),
   },
   {
     name: 'Specialization',
-    selector: (row) => row.specialization,
+    cell: (row) => renderCell(row.specialization),
   },
   {
     name: 'Expert Email',
-    selector: (row) => row.expertEmail,
+    cell: (row) => renderCell(row.expertEmail),
   },
   {
     name: 'City',
-    selector: (row) => row.city,
+    cell: (row) => renderCell(row.city),
   },
   {
     name: 'Reservation Date',
-    selector: (row) => row.date,
+    cell: (row) => renderCell(row.date),
     sortable: true,
   },
   {
     name: 'User Name',
-    selector: (row) => row.user,
+    cell: (row) => renderCell(row.user),
   },
 ];

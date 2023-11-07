@@ -19,6 +19,7 @@ const Reservations = () => {
   const formattedData = reservations.map((reservation) => ({
     id: reservation.id,
     expert: `${reservation.expert.first_name} ${reservation.expert.last_name}`,
+    image_url: reservation.expert.image_url,
     specialization: reservation.expert.specialization.name,
     expertEmail: reservation.expert.email,
     city: reservation.city,
