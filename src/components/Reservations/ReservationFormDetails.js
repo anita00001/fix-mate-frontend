@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import { postReservationDetails } from '../../redux/Reservations/sendReservationSlice';
 import { fetchExperts } from '../../redux/Experts/expertsSlice';
+import Sidebar from '../Navigation/Sidebar';
 
 function ReservationFormDetails() {
   const userObject = sessionStorage.getItem('userPassport');
@@ -31,115 +33,120 @@ function ReservationFormDetails() {
   };
 
   return (
-    <div className="h-screen bg-lime-200">
-      <div className="relative h-screen">
-        <img
-          src={expRecord.image_url}
-          alt="expert"
-          className="absolute inset-0 z-10 mx-auto my-auto block rounded-lg opacity-50 grayscale filter"
-        />
-        <div className="mx-auto block flex h-screen flex-col items-center justify-center">
-          <div className="absolute left-0 top-0 m-4">
-            <button
+    <>
+      <Sidebar />
+      <motion.div
+        className="flex h-screen items-center justify-center bg-gray-100"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="mx-auto max-w-lg rounded-lg bg-white p-4 shadow-lg">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold">
+              Hello,
+              {' '}
+              <span>{jsonObject.name}</span>
+            </h1>
+            <motion.button
               type="button"
               onClick={() => navigate(-1)}
-              className="rounded-lg bg-red-500 p-2 font-bold text-white hover:bg-red-800"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl text-red-500 shadow"
             >
               X
-            </button>
+            </motion.button>
           </div>
-          <div className="z-20 flex flex-col items-center justify-center rounded-lg bg-white p-2 opacity-75">
-            <h1 className="font-normal text-gray-700">
-              {'Hello, '}
-              <span className="font-bold italic text-green-500">
-                {jsonObject.name}
-              </span>
-              {' you are about to reserve '}
-              <span className="font-bold italic text-green-500">
-                {expRecord.first_name}
-              </span>
-              {' '}
-              <span className="font-bold italic text-green-500">
-                {expRecord.last_name}
-              </span>
-            </h1>
-            <h1 className="font-normal text-gray-700">
-              {'Who is an expert in '}
-              <span className="font-bold italic text-green-500">
-                {expRecord.name}
-              </span>
-              {' . You can reach out to him/her on '}
-              <span className="font-bold italic text-green-500">
-                {expRecord.email}
-              </span>
-            </h1>
-            <form
-              onSubmit={handleSubmit}
-              className="z-20 grid w-full grid-cols-3 gap-4 rounded-md p-4"
-              style={{ width: 500 }}
+          <div className="mt-4 flex items-center">
+            <div className="mr-4">
+              <motion.img
+                src={expRecord.image_url}
+                className="rounded-full"
+                alt="expert"
+                initial={{ x: '-100vw' }}
+                animate={{ x: 0 }}
+                transition={{ type: 'spring', stiffness: 120 }}
+              />
+            </div>
+            <div className="text-center">
+              <p>
+                You are about to reserve
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.first_name}
+                  {' '}
+                  {expRecord.last_name}
+                </span>
+                , an expert in
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.name}
+                </span>
+                .
+              </p>
+              <p>
+                You can reach out to them at
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.email}
+                </span>
+                .
+              </p>
+            </div>
+          </div>
+          <form onSubmit={handleSubmit} className="mt-4 text-center">
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={jsonObject.name}
+              className="input"
+            />
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={`${expRecord.first_name} ${expRecord.last_name}`}
+              className="input"
+            />
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={expRecord.name}
+              className="input"
+            />
+            <input
+              type="text"
+              placeholder="Enter city here"
+              required
+              id="city"
+              autoComplete="off"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="input"
+            />
+            <input
+              type="date"
+              required
+              id="reserveDate"
+              value={reserveDate}
+              onChange={(e) => setReserveDate(e.target.value)}
+              className="input"
+            />
+            <motion.button
+              type="submit"
+              className="hover-bg-blue-700 mt-4 w-[80%] rounded-full bg-primary px-3 py-2 font-semibold text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <div className="group relative z-0 mb-3 w-full">
-                <input
-                  type="text"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-                  id="user"
-                  disabled
-                  value={jsonObject.name}
-                />
-              </div>
-              <div className="group relative z-0 mb-3 w-full">
-                <input
-                  type="text"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-                  id="user"
-                  disabled
-                  value={`${expRecord.first_name} ${expRecord.last_name}`}
-                />
-              </div>
-              <div className="group relative z-0 mb-3 w-full">
-                <input
-                  type="text"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-                  id="user"
-                  disabled
-                  value={expRecord.name}
-                />
-              </div>
-              <div className="group relative z-0 mb-3 w-full">
-                <input
-                  type="text"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-                  placeholder="Enter city here"
-                  required
-                  id="city"
-                  autoComplete="off"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-              <div className="group relative z-0 mb-3 w-full">
-                <input
-                  type="date"
-                  className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-                  required
-                  id="reserveDate"
-                  value={reserveDate}
-                  onChange={(e) => setReserveDate(e.target.value)}
-                />
-              </div>
-              <div className="group relative z-0 mb-4 w-full">
-                <button
-                  type="submit"
-                  className="rounded-md bg-lime-500 px-4 py-2 text-white hover:bg-lime-600"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
+              Submit
+            </motion.button>
+          </form>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </>
   );
 }
 
