@@ -14,7 +14,7 @@ export const logoutDetails = createAsyncThunk('authentication/logout', async () 
 
     if (response.status === 200) {
       sessionStorage.removeItem('userPassport');
-      window.location.href = '/login';
+      window.location.href = '/authenticate';
     }
   } catch (error) {
     throw new Error(error.message);
