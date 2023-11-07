@@ -1,13 +1,13 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1>FixMate</h1>
+  <h1>Fix Mate</h1>
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [👨‍💻 Recipe App ](#-recipe-app-)
+- [👨‍💻 Fix Mate ](#-fix-mate-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -24,13 +24,12 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 👨‍💻 Fix Mate <a name="about-project"></a>
+# [ 👨‍💻 Fix Mate ]<a name="about-project"></a>
 
 **Fix Mate** is committed to making everyday life more convenient by connecting users with trusted service providers. It is a one-stop platform for finding, booking, and  reviewing services, all from the comfort of your home. Users can communicate with service providers through the app, discussing specific requirements, asking questions, and confirming details.
 
 ## Live Link
-<!-- Replace by link after deploy -->
-> - [Live Link](http://localhost:4000)
+> - [Live Link](https://fixmate.netlify.app/)
 
 ## Link to Back End
 > - [Base Url](https://fixmate.onrender.com/)
