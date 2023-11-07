@@ -12,11 +12,19 @@ const Reservations = () => {
     (state) => state.reservations,
   );
 
+  const userObject = sessionStorage.getItem('userPassport');
+  const jsonObject = JSON.parse(userObject);
+  const userID = jsonObject.id;
+
+  const filteredReservations = reservations.filter(
+    (reservation) => reservation.user_id.toString() === userID,
+  );
+
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
 
-  const formattedData = reservations.map((reservation) => ({
+  const formattedData = filteredReservations.map((reservation) => ({
     id: reservation.id,
     expert: `${reservation.expert.first_name} ${reservation.expert.last_name}`,
     image_url: reservation.expert.image_url,
