@@ -1,3 +1,3 @@
-const baseURL = 'http://localhost:4000/';
+const baseURL = 'https://fixmate.onrender.com/';
 
 export default baseURL;
