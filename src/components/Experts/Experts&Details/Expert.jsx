@@ -43,7 +43,7 @@ const Experts = () => {
   return (
     <>
       <Sidebar />
-      <div className="page bg-gray-100">
+      <div className="page bg-gray-100 pt-8">
         <h1 className="text-3xl font-bold">Meet our Experts</h1>
         <p className="text-lg text-gray-600">Please select an Expert</p>
         <span className="font-thin text-slate-500">

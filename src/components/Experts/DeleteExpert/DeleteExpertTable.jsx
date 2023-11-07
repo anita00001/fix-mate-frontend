@@ -1,8 +1,8 @@
 import React from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
+import { LuTrash2 } from 'react-icons/lu';
 
 const customStyles = {
   headCells: {
@@ -27,34 +27,40 @@ createTheme('solarized', {
   },
 });
 
+const renderImageCell = (cellData) => (
+  <div className="my-4 flex h-10 w-10 items-center justify-center bg-contain">
+    <img src={cellData} alt={cellData} />
+  </div>
+);
 function DeleteExpertTable({ experts, onToggleRemove }) {
   const formattedData = experts.map((expert) => ({
     id: expert.id,
     name: `${expert.first_name} ${expert.last_name}`,
     specialization: expert.name,
+    image_url: expert.image_url,
     removed: expert.removed,
   }));
 
   const columns = [
     {
       name: 'id',
-      selector: (row) => (
-        <div className="text-slate-500">
-          {row.id}
-        </div>
-      ),
+      selector: (row) => <div className="text-slate-500">{row.id}</div>,
       sortable: true,
     },
     {
+      name: 'Image',
+      cell: (row) => renderImageCell(row.image_url),
+    },
+    {
       name: 'Name',
-      selector: (row) => <div className="text-slate-500 font-semibold">{row.name}</div>,
+      selector: (row) => (
+        <div className="font-semibold text-slate-500">{row.name}</div>
+      ),
     },
     {
       name: 'Specialization',
       selector: (row) => (
-        <div className="text-slate-500 font-semibold">
-          {row.specialization}
-        </div>
+        <div className="font-semibold text-slate-500">{row.specialization}</div>
       ),
     },
     {
@@ -64,13 +70,13 @@ function DeleteExpertTable({ experts, onToggleRemove }) {
         <motion.button
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          whileHover={{ scale: 1.1, backgroundColor: '#f3f3f3' }}
+          whileHover={{ scale: 1.1 }}
           transition={{ duration: 2 }}
           type="button"
           onClick={() => onToggleRemove(row.id)}
-          className="rounded border border-purple-500 bg-red-500 px-4 py-2 text-white transition-colors hover:bg-white hover:text-red-500"
+          className=" ml-4 text-lg text-red-700 transition-colors hover:text-red-500"
         >
-          Remove
+          <LuTrash2 />
         </motion.button>
       ),
     },
@@ -92,16 +98,18 @@ function DeleteExpertTable({ experts, onToggleRemove }) {
 export default DeleteExpertTable;
 
 DeleteExpertTable.propTypes = {
-  experts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    first_name: PropTypes.string.isRequired,
-    last_name: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    experience: PropTypes.string.isRequired,
-    fee: PropTypes.string.isRequired,
-    status: PropTypes.bool.isRequired,
-    specialization_id: PropTypes.number.isRequired,
-  })).isRequired,
+  experts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      first_name: PropTypes.string.isRequired,
+      last_name: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      experience: PropTypes.string.isRequired,
+      fee: PropTypes.string.isRequired,
+      status: PropTypes.bool.isRequired,
+      specialization_id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
   onToggleRemove: PropTypes.func.isRequired,
 };
