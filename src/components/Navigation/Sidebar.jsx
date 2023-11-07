@@ -21,7 +21,7 @@ const Sidebar = () => {
     try {
       e.preventDefault();
       dispatch(logoutDetails());
-      navigate('/login');
+      navigate('/authenticate');
     } catch (error) {
       setError('Logout failed');
     }
