@@ -4,29 +4,23 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { CiLogout } from 'react-icons/ci';
 import '../../styles/sideBar.css';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import baseURL from '../../redux/apiConfig';
+import { useDispatch } from 'react-redux';
+import { logoutDetails } from '../../redux/logout/logoutSlice';
 import navLinks from './index';
 
 const Sidebar = () => {
-  const userObject = sessionStorage.getItem('userPassport');
-  const jsonObject = JSON.parse(userObject);
   const [navClose, setNavClosed] = useState(false);
 
   const displayHideNavbar = () => setNavClosed(!navClose);
   const [error, setError] = useState('');
-  const handleLogout = async () => {
-    try {
-      const response = await axios.delete(`${baseURL}logout`, {
-        headers: {
-          Authorization: jsonObject.token,
-        },
-      });
+  const dispatch = useDispatch();
+  const userObject = sessionStorage.getItem('userPassport');
+  const jsonObject = JSON.parse(userObject);
 
-      if (response.status === 200) {
-        sessionStorage.removeItem('userPassport');
-        window.location.href = '/login';
-      }
+  const handleLogout = async (e) => {
+    try {
+      e.preventDefault();
+      dispatch(logoutDetails());
     } catch (error) {
       setError('Logout failed');
     }

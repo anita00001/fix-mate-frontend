@@ -7,6 +7,7 @@ import loginSlice from './login/loginSlice';
 import specialitiesSlice from './Specializations/specialitiesSlice';
 import queryExpertsSlice from './QueryExperts/queryExpertsSlice';
 import sendReservationSlice from './Reservations/sendReservationSlice';
+import logoutSlice from './logout/logoutSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     specialization: specialitiesSlice,
     signup: signupSlice,
     login: loginSlice,
+    logout: logoutSlice,
     experts: expertsSlice,
     sendreservation: sendReservationSlice,
     reservations: reservationsSlice,
