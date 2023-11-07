@@ -26,7 +26,7 @@ export default function Authenticate() {
           <div className="mt-4 flex justify-center">
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="mr-2 rounded-full border-2 border-blue-500 bg-transparent px-4 py-2 font-bold text-blue-500 transition duration-200 hover:bg-blue-500 hover:text-white"
+              className="mr-2 rounded-full border-2 border-blue-500 bg-white px-4 py-2 font-bold text-blue-500 transition duration-200 hover:bg-blue-500 hover:bg-transparent hover:text-white"
               type="button"
               onClick={() => navigate('/login')}
             >
@@ -34,7 +34,7 @@ export default function Authenticate() {
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="rounded-full border-2 border-green-500 bg-transparent px-4 py-2 font-bold text-green-500 transition duration-200 hover:bg-green-500 hover:text-white"
+              className="rounded-full border-2 border-green-500 bg-white px-4 py-2 font-bold text-green-500 transition duration-200 hover:bg-green-500 hover:bg-transparent hover:text-white"
               type="button"
               onClick={() => navigate('/signup')}
             >

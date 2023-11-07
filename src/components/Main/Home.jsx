@@ -44,7 +44,7 @@ const Home = () => (
         element={<CheckAuthentication element={<CreateExpert />} />}
       />
       <Route
-        path="/experts/:id"
+        path="/:id"
         element={<CheckAuthentication element={<ExpertDetails />} />}
       />
       <Route

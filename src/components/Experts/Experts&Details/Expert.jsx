@@ -71,7 +71,7 @@ const Experts = () => {
               key={expert.id}
               className="slide z-10 w-[80%] rounded  hover:bg-green-100"
             >
-              <Link to={`/experts/${expert.id}`} className="w-3/6">
+              <Link to={`/${expert.id}`} className="w-3/6">
                 <motion.div
                   initial={{ x: 300, opacity: 0, scale: 0.8 }}
                   animate={{ x: 0, opacity: 1, scale: 1 }}
