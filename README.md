@@ -1,70 +1,211 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <h1>Fix Mate</h1>
+</div>
 
-## Available Scripts
+# 📗 Table of Contents
 
-In the project directory, you can run:
+- [📗 Table of Contents](#-table-of-contents)
+- [👨‍💻 Fix Mate ](#-fix-mate-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Installation](#installation)
+    - [Database Setup](#database-setup)
+    - [Running the App](#running-the-app)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [💖 Show your support ](#-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
-### `npm start`
+# [ 👨‍💻 Fix Mate ]<a name="about-project"></a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Fix Mate** is committed to making everyday life more convenient by connecting users with trusted service providers. It is a one-stop platform for finding, booking, and  reviewing services, all from the comfort of your home. Users can communicate with service providers through the app, discussing specific requirements, asking questions, and confirming details.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Link
+> - [Live Link](https://fixmate.netlify.app/)
 
-### `npm test`
+## Link to Back End
+> - [Base Url](https://fixmate.onrender.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> - API Endpoints
+- api/v1/experts
+- api/v1/reservations
+- api/v1/specializations
+> - [API Documentation](https://fixmate.onrender.com/api-docs/index.html)
 
-### `npm run build`
+> - [Link to Back-end Repository](https://github.com/anita00001/fix-mate-backend)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Kanban Board Link
+> - [Link to Kanban Board](https://github.com/users/anita00001/projects/5)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠 Built With <a name="built-with"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack <a name="tech-stack"></a>
 
-### `npm run eject`
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React</a></li>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Features <a name="key-features"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The key features of this project include.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Show all Experts**
+- **Reserve an Expert**
+- **Show my Reservation**
+- **Add an Expert**
+- **Delete an Expert**
+- **Add a Specialization**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+## 💻 Getting Started <a name="getting-started"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> - To get a local copy up and running, follow these steps.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+Before you begin, make sure you have the following installed on your machine:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [x] A code editor (like VSCode, Sublime, Atom, etc.): You can download VSCode [here](https://code.visualstudio.com/download), Sublime [here](https://www.sublimetext.com/3), and Atom [here](https://atom.io/).
+- [x] Git: You can download Git [here](https://git-scm.com/downloads).
+- [x] Node.js: You can download Node.js [here](https://nodejs.org/en/download/).
 
-### Analyzing the Bundle Size
+> - Version Requirements:
+```
+  react > 16.3.2
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Setup
 
-### Making a Progressive Web App
+> - To setup this project locally:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Open terminal in VScode.
+2. Navigate to the directory where you want clone the copy of this repository.
+3. Create new directory [optional].
+4. Clone the repository by running the following command:
 
-### Advanced Configuration
+```sh
+git clone https://github.com/anita00001/fix-mate-frontend.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. Navigate into the cloned repository:
 
-### Deployment
+```sh
+cd fix-mate-frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Installation
 
-### `npm run build` fails to minify
+1. Install the required dependencies by running the following command:
+```sh
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+  npm install react-redux
+```
+
+```sh
+  npm install react-router-dom
+```
+
+```sh
+  npm install @reduxjs/toolkit
+```
+
+### Running the App
+
+> - To run the application, run the following command:
+
+```sh
+npm start
+```
+
+### Run tests
+
+> - To run Stylelint checker, run the following command:
+```sh
+  npm install
+```
+```sh
+  npx stylelint "**/*.{css,scss}"
+```
+
+> - To run ESlint checker, run the following command:
+```sh
+  npx eslint "**/*.{js,jsx}"
+```
+
+> - This will start the React development server and you can access the application by visiting http://localhost:3000 in your web browser.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Authors <a name="authors"></a>
+
+The collaborators of this project.
+
+👨‍🚀 **Anita Sharma**
+> - GitHub: [@anita00001](https://github.com/anita00001)
+> - LinkedIn: [anitaa-sharmaa](https://www.linkedin.com/in/anitaa-sharmaa/)
+> - Twitter: [@anitaa_sharmaa](https://twitter.com/anitaa_sharmaa)
+
+👤 **Ansar Ibrahim**
+- [GitHub](https://github.com/AnsarIbrahim)
+- [LinkedIn](https://linkedin.com/in/ansar-ibrahim/)
+- [Twitter](https://twitter.com/ansaradheeb)
+
+👤 **MoFuhidy**
+- GitHub: [@Mofuhidy](https://github.com/Mofuhidy)
+- LinkedIn: [@Mofuhidy](https://www.linkedin.com/in/mo-fuhidy/)
+
+👤 **Theodore Asimeng-Osei**
+- GitHub: [@githubhandle](https://github.com/Theodoraldo)
+- Twitter: [@twitterhandle](https://twitter.com/AsimengOse33947)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/theodoreasimeng/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Delete Specializations**
+- [ ] **Add Admin Role**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+> - Contributions, issues, and feature requests are welcome!
+
+> - Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💖 Show your support <a name="support"></a>
+
+> - Give a ⭐️, if you like this project!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> - We would like to thank [Microverseinc](https://github.com/microverseinc) for [Readme-template](https://github.com/microverseinc/readme-template), our code reviewer and external evaluator. We would extend our sincere gratitude to [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for provinding the original design.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
