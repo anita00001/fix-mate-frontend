@@ -33,7 +33,7 @@ function ReservationFormDetails() {
   return (
     <div className="h-screen bg-lime-200">
       <div className="relative h-screen">
-        <img src={expRecord.image_url} alt="expert" className="absolute inset-0 block mx-auto filter opacity-50 grayscale z-10" />
+        <img src={expRecord.image_url} alt="expert" className="absolute inset-0 block mx-auto my-auto filter opacity-50 grayscale z-10" />
         <div className="block mx-auto h-screen flex flex-col justify-center items-center">
           <div className="absolute top-0 left-0 m-4">
             <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
