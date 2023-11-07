@@ -33,8 +33,13 @@
 > - [Live Link](http://localhost:4000)
 
 ## Link to Back End
-<!-- Replace by link after deploy -->
-> - [Link to Back-end API](http://localhost:4000)
+> - [Base Url](https://fixmate.onrender.com/)
+
+> - API Endpoints
+- api/v1/experts
+- api/v1/reservations
+- api/v1/specializations
+> - [API Documentation](https://fixmate.onrender.com/api-docs/index.html)
 
 > - [Link to Back-end Repository](https://github.com/anita00001/fix-mate-backend)
 
