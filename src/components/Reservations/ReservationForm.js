@@ -77,6 +77,7 @@ function ReservationForm() {
             <button
               type="button"
               onClick={() => navigate(-1)}
+              aria-label="Close"
               className="absolute right-4 top-4 rounded-full bg-red-500 p-1 text-white transition duration-200 hover:bg-red-700"
             >
               <AiOutlineClose size={24} />
