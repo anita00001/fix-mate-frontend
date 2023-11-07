@@ -11,6 +11,7 @@ import DeleteExpert from '../Experts/DeleteExpert/DeleteExpert';
 import ExpertDetails from '../Experts/Experts&Details/ExpertDetails';
 import Specialize from '../Specializations/Specialize';
 import ReservationForm from '../Reservations/ReservationForm';
+import ReservationFormDetails from '../Reservations/ReservationFormDetails';
 
 const isUserLoggedIn = () => {
   const userPassport = sessionStorage.getItem('userPassport');
@@ -58,6 +59,10 @@ const Home = () => (
       <Route
         path="/new_reservation"
         element={<CheckAuthentication element={<ReservationForm />} />}
+      />
+      <Route
+        path="/detail_reservation/:id"
+        element={<CheckAuthentication element={<ReservationFormDetails />} />}
       />
     </Routes>
   </>

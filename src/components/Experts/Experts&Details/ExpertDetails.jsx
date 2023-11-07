@@ -89,16 +89,15 @@ const ExpertDetails = () => {
             </div>
           )}
           <div className="flex justify-end md:ml-[30rem]">
-            <Link to="/new_reservation">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                type="button"
-                className="hover:g-primary mt-4 rounded bg-primary px-4 py-2 text-white md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
-              >
-                Reserve
-              </motion.button>
-            </Link>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              type="button"
+              onClick={() => navigate(`/detail_reservation/${expert.id}`)}
+              className="hover:g-primary mt-4 rounded bg-primary px-4 py-2 text-white md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
+            >
+              Reserve
+            </motion.button>
           </div>
           <motion.div
             whileHover={{ scale: 1.1 }}

@@ -16,7 +16,7 @@ function ReservationForm() {
   const [city, setCity] = useState('');
   const [reserveDate, setReserveDate] = useState('');
   const { expertData, error, loading } = useSelector((state) => state.queryexperts);
-  const { postReservationData, error1, loading1 } = useSelector((state) => state.sendreservation);
+  const { error1, loading1 } = useSelector((state) => state.sendreservation);
 
   useEffect(() => {
     dispatch(queryExpertDetails());
@@ -30,9 +30,7 @@ function ReservationForm() {
       city,
       date: reserveDate,
     }));
-    setExpertId('');
-    setCity('');
-    setReserveDate('');
+    navigate('/reservations');
   };
 
   if (loading) {

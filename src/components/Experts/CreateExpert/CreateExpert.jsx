@@ -73,7 +73,6 @@ const CreateExpert = () => {
         specialization_id: '',
         image: null,
       });
-
       return true;
     } catch (error) {
       throw new Error(error);
