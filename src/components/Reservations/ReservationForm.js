@@ -67,11 +67,6 @@ function ReservationForm() {
             </div>
           )}
           {loading1 && <div className="text-blue-500">loading ...</div>}
-          {postReservationData && (
-            <div className="text-green-500">
-              You have just reserved an Expert
-            </div>
-          )}
           <motion.form
             initial={{ y: '-100vh' }}
             animate={{ y: 0 }}
