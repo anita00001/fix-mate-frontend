@@ -80,6 +80,7 @@ const ExpertDetails = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             type="button"
+            onClick={() => navigate(`/detail_reservation/${expert.id}`)}
             className="mt-4 rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700 md:mr-64 md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
           >
             Reserve

@@ -13,7 +13,7 @@ function ReservationForm() {
   const [city, setCity] = useState('');
   const [reserveDate, setReserveDate] = useState('');
   const { expertData, error, loading } = useSelector((state) => state.queryexperts);
-  const { postReservationData, error1, loading1 } = useSelector((state) => state.sendreservation);
+  const { error1, loading1 } = useSelector((state) => state.sendreservation);
 
   useEffect(() => {
     dispatch(queryExpertDetails());
@@ -27,15 +27,13 @@ function ReservationForm() {
       city,
       date: reserveDate,
     }));
-    setExpertId('');
-    setCity('');
-    setReserveDate('');
+    navigate('/reservations');
   };
 
   return (
-    <div className="h-screen bg-cover" style={{ backgroundImage: 'url("./images/reservation.jpg")' }}>
+    <div className="h-screen bg-cover" style={{ backgroundImage: 'url("../images/reservation.jpg")' }}>
       <div className="w-full h-screen flex flex-col justify-center items-center bg-black p-4 text-center opacity-75">
-        <div className="w-full flex">
+        <div className="absolute top-0 left-0 m-4">
           <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
             X
           </button>
@@ -44,7 +42,6 @@ function ReservationForm() {
         {loading && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">Expert data is loading ...</div>}
         {error1 && <div className="p-2 mb-2 text-sm text-red-800 font-bold rounded-lg bg-red-50">Reserving and expert failed at this point</div>}
         {loading1 && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">loading ...</div>}
-        {postReservationData && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">You have just reserved an Expert</div>}
         <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded-md">
           <div className="text-2xl text-white font-bold mb-3">Reserve an Expert</div>
           <div>

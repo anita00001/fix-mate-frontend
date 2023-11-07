@@ -27,8 +27,8 @@ const Experts = () => {
     <>
       <Sidebar />
       <div className="page sm:mt-12">
-        <h1 className="text-3xl font-bold ">Meet our Experts</h1>
-        <p className="text-lg text-gray-600">Please select a Experts</p>
+        <h1 className="text-3xl font-bold">Meet our Experts</h1>
+        <p className="text-lg text-gray-600">Please select an Expert</p>
         <span className="font-thin text-slate-500">
           ............................
         </span>
@@ -72,14 +72,12 @@ const Experts = () => {
                   <span className="font-semibold">
                     {`${expert.first_name} ${expert.last_name}`}
                   </span>
-                  <br />
                   <span className="font-light">
                     Specialization:
                     <span className="font-light text-slate-400">
                       {` ${expert.name}`}
                     </span>
                   </span>
-                  <br />
                   {'Status: '}
                   {expert.status ? 'Available' : 'Not available'}
                   <br />
