@@ -14,7 +14,6 @@ export const logoutDetails = createAsyncThunk('authentication/logout', async () 
 
     if (response.status === 200) {
       sessionStorage.removeItem('userPassport');
-      window.location.replace('https://fixmate.netlify.app/authenticate');
     }
   } catch (error) {
     throw new Error(error.message);

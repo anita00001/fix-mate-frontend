@@ -3,14 +3,14 @@ import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { CiLogout } from 'react-icons/ci';
 import '../../styles/sideBar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logoutDetails } from '../../redux/logout/logoutSlice';
 import navLinks from './index';
 
 const Sidebar = () => {
   const [navClose, setNavClosed] = useState(false);
-
+  const navigate = useNavigate();
   const displayHideNavbar = () => setNavClosed(!navClose);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ const Sidebar = () => {
     try {
       e.preventDefault();
       dispatch(logoutDetails());
+      navigate('/authenticate');
     } catch (error) {
       setError('Logout failed');
     }
