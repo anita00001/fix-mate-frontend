@@ -3,7 +3,7 @@ import { createTheme } from 'react-data-table-component';
 const renderCell = (cellData) => (cellData || 'N/A');
 const renderImageCell = (cellData) => (
   <div className="my-4 flex h-10 w-10 items-center justify-center bg-contain">
-    <img src={cellData} alt={cellData} />
+    <img src={cellData} alt={cellData} className="rounded-full" />
   </div>
 );
 export const customStyles = {
