@@ -6,15 +6,12 @@ export const logoutDetails = createAsyncThunk('authentication/logout', async () 
   try {
     const userObject = sessionStorage.getItem('userPassport');
     const jsonObject = JSON.parse(userObject);
-    const response = await axios.delete(`${baseURL}logout`, {
+    const responseDetails = await axios.delete(`${baseURL}logout`, {
       headers: {
         Authorization: jsonObject.token,
       },
     });
-
-    if (response.status === 200) {
-      sessionStorage.removeItem('userPassport');
-    }
+    return responseDetails.data;
   } catch (error) {
     throw new Error(error.message);
   }

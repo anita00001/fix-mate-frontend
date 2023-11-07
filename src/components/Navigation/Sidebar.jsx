@@ -21,6 +21,7 @@ const Sidebar = () => {
     try {
       e.preventDefault();
       dispatch(logoutDetails());
+      sessionStorage.removeItem('userPassport');
       navigate('/authenticate');
     } catch (error) {
       setError('Logout failed');
