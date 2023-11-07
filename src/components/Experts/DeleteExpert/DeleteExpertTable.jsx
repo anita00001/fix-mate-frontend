@@ -27,9 +27,9 @@ createTheme('solarized', {
   },
 });
 
-const renderImageCell = (cellData) => (
+const renderImageCell = (cellData, alt) => (
   <div className="my-4 flex h-10 w-10 items-center justify-center bg-contain">
-    <img src={cellData} alt={cellData} className="rounded-full" />
+    <img src={cellData} alt={alt} className="rounded-full" />
   </div>
 );
 function DeleteExpertTable({ experts, onToggleRemove }) {
@@ -49,7 +49,7 @@ function DeleteExpertTable({ experts, onToggleRemove }) {
     },
     {
       name: 'Image',
-      cell: (row) => renderImageCell(row.image_url),
+      cell: (row) => renderImageCell(row.image_url, row.name),
     },
     {
       name: 'Name',
