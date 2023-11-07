@@ -33,7 +33,7 @@ function ReservationFormDetails() {
   return (
     <div className="h-screen bg-lime-200">
       <div className="relative h-screen">
-        <img src={expRecord.image_url} alt="expert" className="absolute inset-0 block mx-auto my-auto filter opacity-50 grayscale z-10" />
+        <img src={expRecord.image_url} alt="expert" className="absolute inset-0 block mx-auto my-auto filter opacity-50 grayscale z-10 rounded-lg" />
         <div className="block mx-auto h-screen flex flex-col justify-center items-center">
           <div className="absolute top-0 left-0 m-4">
             <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
@@ -56,7 +56,25 @@ function ReservationFormDetails() {
               <span className="text-green-500 italic font-bold">{expRecord.email}</span>
             </h1>
             <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4 w-full p-4 rounded-md z-20" style={{ width: 500 }}>
-              <div className="relative z-0 w-full mb-4 group">
+              <div className="relative z-0 w-full mb-3 group">
+                <input
+                  type="text"
+                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  id="user"
+                  disabled
+                  value={jsonObject.name}
+                />
+              </div>
+              <div className="relative z-0 w-full mb-3 group">
+                <input
+                  type="text"
+                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  id="user"
+                  disabled
+                  value={expRecord.name}
+                />
+              </div>
+              <div className="relative z-0 w-full mb-3 group">
                 <input
                   type="text"
                   className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -68,7 +86,7 @@ function ReservationFormDetails() {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </div>
-              <div className="relative z-0 w-full mb-4 group">
+              <div className="relative z-0 w-full mb-3 group">
                 <input
                   type="date"
                   className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
