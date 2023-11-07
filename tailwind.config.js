@@ -16,6 +16,9 @@ module.exports = {
       colors: {
         primary: '#98bf11',
       },
+      margin: {
+        '-48': '-48px',
+      },
     },
   },
   plugins: [],

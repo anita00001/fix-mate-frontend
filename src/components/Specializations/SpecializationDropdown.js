@@ -17,11 +17,11 @@ const SpecializationDropdown = ({ formData, onChange }) => {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 2 }}
+      className="focus:shadow-outline mb-4 w-full rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 transition-colors  focus:outline-none"
       required
       name="specialization_id"
       value={formData.specialization}
       onChange={onChange}
-      className="focus:shadow-outline mb-4 w-full rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 transition-colors hover:bg-green-200 focus:outline-none"
     >
       <option value="">Select Specialization</option>
       {specializations.map((specialization) => (

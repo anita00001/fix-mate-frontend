@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import { fetchExperts } from '../../../redux/Experts/expertsSlice';
 import Sidebar from '../../Navigation/Sidebar';
@@ -27,7 +26,20 @@ const ExpertDetails = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
   }
 
   return (
@@ -76,20 +88,22 @@ const ExpertDetails = () => {
               </div>
             </div>
           )}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            type="button"
-            onClick={() => navigate(`/detail_reservation/${expert.id}`)}
-            className="mt-4 rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700 md:mr-64 md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
-          >
-            Reserve
-          </motion.button>
+          <div className="flex justify-end md:ml-[30rem]">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              type="button"
+              onClick={() => navigate(`/detail_reservation/${expert.id}`)}
+              className="hover:g-primary mt-4 rounded bg-primary px-4 py-2 text-white md:mt-10 md:self-end md:px-8 md:py-4 md:text-xl"
+            >
+              Reserve
+            </motion.button>
+          </div>
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => navigate(-1)}
-            className="mt-4 rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700 md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
+            className="hover:bg-primary cursor-pointer mt-4 rounded md:-ml-48 bg-primary px-4 py-2 text-white md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

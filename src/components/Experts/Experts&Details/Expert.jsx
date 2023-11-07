@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PiFacebookLogoBold, PiInstagramLogoBold } from 'react-icons/pi';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Link } from 'react-router-dom';
@@ -18,15 +17,33 @@ import 'swiper/css/pagination';
 const Experts = () => {
   const dispatch = useDispatch();
   const experts = useSelector((state) => state.experts.experts);
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    dispatch(fetchExperts());
+    dispatch(fetchExperts()).then(() => setLoading(false));
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <>
       <Sidebar />
-      <div className="page sm:mt-12">
+      <div className="page bg-gray-100 pt-8">
         <h1 className="text-3xl font-bold">Meet our Experts</h1>
         <p className="text-lg text-gray-600">Please select an Expert</p>
         <span className="font-thin text-slate-500">
@@ -54,7 +71,7 @@ const Experts = () => {
               key={expert.id}
               className="slide z-10 w-[80%] rounded  hover:bg-green-100"
             >
-              <Link to={`/experts/${expert.id}`} className="w-3/6">
+              <Link to={`/${expert.id}`} className="w-3/6">
                 <motion.div
                   initial={{ x: 300, opacity: 0, scale: 0.8 }}
                   animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -81,7 +98,7 @@ const Experts = () => {
                   {'Status: '}
                   {expert.status ? 'Available' : 'Not available'}
                   <br />
-                  <div className="flex text-2xl opacity-50 mt-1">
+                  <div className="mt-1 flex text-2xl opacity-50">
                     <span>
                       <PiFacebookLogoBold />
                     </span>

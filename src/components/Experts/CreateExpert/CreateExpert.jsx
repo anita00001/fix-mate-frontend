@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import baseURL from '../../../redux/apiConfig';
 import Sidebar from '../../Navigation/Sidebar';
@@ -7,6 +6,12 @@ import '../../../styles/Experts.css';
 import CreateExpertForm from './CreateExpertForm';
 
 const CreateExpert = () => {
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -22,7 +27,6 @@ const CreateExpert = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'image') {
-      // handle the image file
       setFormData({ ...formData, [name]: e.target.files });
     } else {
       setFormData({
@@ -41,7 +45,6 @@ const CreateExpert = () => {
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
       if (key === 'image') {
-        // append the image file
         data.append(`expert[${key}]`, formData[key][0]);
       } else {
         data.append(`expert[${key}]`, formData[key]);
@@ -70,10 +73,28 @@ const CreateExpert = () => {
         specialization_id: '',
         image: null,
       });
+      return true;
     } catch (error) {
       throw new Error(error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -82,11 +103,7 @@ const CreateExpert = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="flex h-screen w-screen items-center flex-col justify-center bg-cover"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/images/bg.jpg')",
-        }}
+        className="flex h-screen w-screen flex-col items-center justify-center bg-gray-100"
       >
         <motion.h1
           initial={{ scale: 0 }}

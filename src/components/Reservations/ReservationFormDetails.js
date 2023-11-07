@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import { postReservationDetails } from '../../redux/Reservations/sendReservationSlice';
 import { fetchExperts } from '../../redux/Experts/expertsSlice';
+import Sidebar from '../Navigation/Sidebar';
 
 function ReservationFormDetails() {
   const userObject = sessionStorage.getItem('userPassport');
@@ -31,81 +33,120 @@ function ReservationFormDetails() {
   };
 
   return (
-    <div className="h-screen bg-lime-200">
-      <div className="relative h-screen">
-        <img src={expRecord.image_url} alt="expert" className="absolute inset-0 block mx-auto my-auto filter opacity-50 grayscale z-10 rounded-lg" />
-        <div className="block mx-auto h-screen flex flex-col justify-center items-center">
-          <div className="absolute top-0 left-0 m-4">
-            <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
-              X
-            </button>
-          </div>
-          <div className="bg-white z-20 p-2 flex flex-col justify-center items-center rounded-lg opacity-75">
-            <h1 className="text-gray-700 font-normal">
-              {'Hello, '}
-              <span className="text-green-500 italic font-bold">{jsonObject.name}</span>
-              {' you are about to reserve '}
-              <span className="text-green-500 italic font-bold">{expRecord.first_name}</span>
+    <>
+      <Sidebar />
+      <motion.div
+        className="flex h-screen items-center justify-center bg-gray-100"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="mx-auto max-w-lg rounded-lg bg-white p-4 shadow-lg">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold">
+              Hello,
               {' '}
-              <span className="text-green-500 italic font-bold">{expRecord.last_name}</span>
+              <span>{jsonObject.name}</span>
             </h1>
-            <h1 className="text-gray-700 font-normal">
-              {'Who is an expert in '}
-              <span className="text-green-500 italic font-bold">{expRecord.name}</span>
-              {' . You can reach out to him/her on '}
-              <span className="text-green-500 italic font-bold">{expRecord.email}</span>
-            </h1>
-            <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4 w-full p-4 rounded-md z-20" style={{ width: 500 }}>
-              <div className="relative z-0 w-full mb-3 group">
-                <input
-                  type="text"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  id="user"
-                  disabled
-                  value={jsonObject.name}
-                />
-              </div>
-              <div className="relative z-0 w-full mb-3 group">
-                <input
-                  type="text"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  id="user"
-                  disabled
-                  value={expRecord.name}
-                />
-              </div>
-              <div className="relative z-0 w-full mb-3 group">
-                <input
-                  type="text"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder="Enter city here"
-                  required
-                  id="city"
-                  autoComplete="off"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-              <div className="relative z-0 w-full mb-3 group">
-                <input
-                  type="date"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-600 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  required
-                  id="reserveDate"
-                  value={reserveDate}
-                  onChange={(e) => setReserveDate(e.target.value)}
-                />
-              </div>
-              <div className="relative z-0 w-full mb-4 group">
-                <button type="submit" className="bg-lime-500 px-4 text-white hover:bg-lime-600 rounded-md py-2">
-                  Submit
-                </button>
-              </div>
-            </form>
+            <motion.button
+              type="button"
+              onClick={() => navigate(-1)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl text-red-500 shadow"
+            >
+              X
+            </motion.button>
           </div>
+          <div className="mt-4 flex items-center">
+            <div className="mr-4">
+              <motion.img
+                src={expRecord.image_url}
+                className="rounded-full"
+                alt="expert"
+                initial={{ x: '-100vw' }}
+                animate={{ x: 0 }}
+                transition={{ type: 'spring', stiffness: 120 }}
+              />
+            </div>
+            <div className="text-center">
+              <p>
+                You are about to reserve
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.first_name}
+                  {' '}
+                  {expRecord.last_name}
+                </span>
+                , an expert in
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.name}
+                </span>
+                .
+              </p>
+              <p>
+                You can reach out to them at
+                {' '}
+                <span className="font-semibold text-lime-400">
+                  {expRecord.email}
+                </span>
+                .
+              </p>
+            </div>
+          </div>
+          <form onSubmit={handleSubmit} className="mt-4 text-center">
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={jsonObject.name}
+              className="input"
+            />
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={`${expRecord.first_name} ${expRecord.last_name}`}
+              className="input"
+            />
+            <input
+              type="text"
+              id="user"
+              disabled
+              value={expRecord.name}
+              className="input"
+            />
+            <input
+              type="text"
+              placeholder="Enter city here"
+              required
+              id="city"
+              autoComplete="off"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="input"
+            />
+            <input
+              type="date"
+              required
+              id="reserveDate"
+              value={reserveDate}
+              onChange={(e) => setReserveDate(e.target.value)}
+              className="input"
+            />
+            <motion.button
+              type="submit"
+              className="hover-bg-blue-700 mt-4 w-[80%] rounded-full bg-primary px-3 py-2 font-semibold text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Submit
+            </motion.button>
+          </form>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </>
   );
 }
 

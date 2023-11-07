@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { motion } from 'framer-motion';
 import Sidebar from '../Navigation/Sidebar';
 import { fetchSpecializations, specialDetails } from '../../redux/Specializations/specialitiesSlice';
@@ -10,6 +9,11 @@ export default function Specialize() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const error = useSelector((state) => state.login.error);
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +23,23 @@ export default function Specialize() {
     setDescription('');
   };
 
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <motion.div
+          animate={{ x: ['-100%', '100%', '-100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            backgroundColor: '#98bf11',
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <>
       <Sidebar />
@@ -26,11 +47,11 @@ export default function Specialize() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex h-screen w-screen items-center justify-center text-center"
+        className="flex h-screen w-screen items-center bg-gray-100 justify-center text-center"
       >
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-md rounded-md p-4"
+          className="w-full max-w-md rounded-md p-4 bg-white shadow-md border"
         >
           <h1 className="mb-4 text-2xl font-bold text-gray-500">
             Add New Specialization
