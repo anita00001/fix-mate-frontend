@@ -57,8 +57,8 @@ const Sidebar = () => {
         </button>
 
         <div className="mt-3 px-2 py-2">
-          <div className="font-bold text-primary text-center">
-            <span className="text-black mr-1">Welcome back  </span>
+          <div className="text-center font-bold text-primary">
+            <span className="mr-1 text-black">Welcome back </span>
             {jsonObject.name}
           </div>
           <span className="grid h-20 w-20  place-content-center rounded-lg pl-16 text-center text-3xl text-slate-900">
@@ -84,17 +84,17 @@ const Sidebar = () => {
         <div className="sticky inset-x-0 bottom-0 flex flex-col items-center gap-2 rounded-lg border-t border-gray-100 px-4 py-2 text-gray-500">
           <button
             type="button"
-            className="mb-2 rounded-lg bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 px-5 py-2.5 text-center text-sm font-medium text-gray-900 shadow-lg shadow-lime-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-lime-300 dark:shadow-lg dark:shadow-lime-800/80 dark:focus:ring-lime-800"
+            className="shadow-lghover:bg-gradient-to-br mb-2 w-[60%] rounded-lg bg-primary bg-gradient-to-r py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-lime-300 dark:shadow-lg dark:shadow-lime-800/80 dark:focus:ring-lime-800"
             onClick={handleLogout}
           >
-            <span className="flex flex-row gap-2">
+            <span className="flex flex-row items-center justify-center gap-2">
               <CiLogout />
               Logout
             </span>
           </button>
           <a
             href="https://github.com/anita00001/fix-mate-frontend"
-            className="mb-2 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white shadow-lg shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:shadow-lg dark:shadow-cyan-800/80 dark:focus:ring-cyan-800"
+            className="mb-2 "
           >
             &copy; FixMate
           </a>
