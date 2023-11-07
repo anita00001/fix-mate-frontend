@@ -17,7 +17,7 @@ const Reservations = () => {
   const userID = jsonObject.id;
 
   const filteredReservations = reservations.filter(
-    (reservation) => reservation.user_id.toString() === userID,
+    (reservation) => reservation.user.id.toString() === userID,
   );
 
   useEffect(() => {
