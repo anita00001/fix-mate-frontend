@@ -1,11 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import baseURL from '../apiConfig';
 
 export const logoutDetails = createAsyncThunk('authentication/logout', async () => {
   try {
-    const navigate = useNavigate();
     const userObject = sessionStorage.getItem('userPassport');
     const jsonObject = JSON.parse(userObject);
     const response = await axios.delete(`${baseURL}logout`, {
@@ -16,7 +14,6 @@ export const logoutDetails = createAsyncThunk('authentication/logout', async () 
 
     if (response.status === 200) {
       sessionStorage.removeItem('userPassport');
-      navigate('/login');
     }
   } catch (error) {
     throw new Error(error.message);
