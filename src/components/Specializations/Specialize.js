@@ -47,11 +47,11 @@ export default function Specialize() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex h-screen w-screen items-center justify-center text-center"
+        className="flex h-screen w-screen items-center bg-gray-100 justify-center text-center"
       >
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-md rounded-md p-4"
+          className="w-full max-w-md rounded-md p-4 bg-white shadow-md border"
         >
           <h1 className="mb-4 text-2xl font-bold text-gray-500">
             Add New Specialization

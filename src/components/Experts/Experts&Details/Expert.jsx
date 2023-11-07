@@ -43,8 +43,8 @@ const Experts = () => {
   return (
     <>
       <Sidebar />
-      <div className="page sm:mt-12">
-        <h1 className="text-3xl font-bold ">Meet our Experts</h1>
+      <div className="page bg-gray-100">
+        <h1 className="text-3xl font-bold">Meet our Experts</h1>
         <p className="text-lg text-gray-600">Please select a Experts</p>
         <span className="font-thin text-slate-500">
           ............................
@@ -80,7 +80,7 @@ const Experts = () => {
                 >
                   <img
                     alt={expert.first_name}
-                    src="./images/demo.jpg"
+                    src={expert.image_url}
                     className="rounded-full shadow-lg"
                   />
                   <span className="font-thin text-slate-500">
@@ -100,7 +100,7 @@ const Experts = () => {
                   {'Status: '}
                   {expert.status ? 'Available' : 'Not available'}
                   <br />
-                  <div className="flex text-2xl opacity-50 mt-1">
+                  <div className="mt-1 flex text-2xl opacity-50">
                     <span>
                       <PiFacebookLogoBold />
                     </span>

@@ -21,43 +21,62 @@ const CreateExpert = () => {
     fee: '',
     status: true,
     specialization_id: '',
+    image: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: name === 'fee' || name === 'experience' ? Math.max(0, parseFloat(value)) : value,
-    });
+    if (name === 'image') {
+      setFormData({ ...formData, [name]: e.target.files });
+    } else {
+      setFormData({
+        ...formData,
+        [name]:
+          name === 'fee' || name === 'experience'
+            ? Math.max(0, parseFloat(value))
+            : value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+      if (key === 'image') {
+        data.append(`expert[${key}]`, formData[key][0]);
+      } else {
+        data.append(`expert[${key}]`, formData[key]);
+      }
+    });
+
     try {
       const response = await fetch(`${baseURL}api/v1/experts`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: data,
       });
-      if (response.ok) {
-        setFormData({
-          first_name: '',
-          last_name: '',
-          address: '',
-          email: '',
-          experience: '',
-          fee: '',
-          status: true,
-          specialization_id: '',
-        });
-      } else {
-        throw new Error('Something went wrong');
+
+      if (!response.ok) {
+        const responseBody = await response.json();
+        throw new Error(responseBody.error);
       }
+
+      setFormData({
+        first_name: '',
+        last_name: '',
+        address: '',
+        email: '',
+        experience: '',
+        fee: '',
+        status: true,
+        specialization_id: '',
+        image: null,
+      });
+
+      return true;
     } catch (error) {
-      throw new Error('Error occurred while sending data:');
+      throw new Error(error);
     }
   };
 
@@ -85,11 +104,7 @@ const CreateExpert = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="flex h-screen w-screen items-center flex-col justify-center bg-cover"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/images/bg.jpg')",
-        }}
+        className="flex h-screen w-screen flex-col items-center justify-center bg-gray-100"
       >
         <motion.h1
           initial={{ scale: 0 }}

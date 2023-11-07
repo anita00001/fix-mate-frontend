@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SpecializationDropdown from '../../Specializations/SpecializationDropdown';
 
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
-  const isFormComplete = Object.values(formData).every((value) => value !== '');
+  const navigate = useNavigate();
   const [workingTime, setWorkingTime] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const success = await handleSubmit(event, formData);
+    if (success) {
+      navigate('/');
+    }
+  };
 
   useEffect(() => {
     const checkWorkingTime = () => {
@@ -25,8 +33,8 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="mx-auto mt-5 flex h-full w-[100%] flex-col items-center rounded bg-white px-4 py-3 shadow-md md:grid md:grid-cols-2 md:items-start md:gap-10"
+      onSubmit={onSubmit}
+      className="mx-auto mt-5 flex h-full w-[100%] flex-col items-center rounded bg-white px-4 py-7 shadow-md md:grid md:grid-cols-2 md:items-start md:gap-10"
     >
       <motion.input
         initial={{ scale: 0 }}
@@ -129,15 +137,26 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
       </label>
 
       <SpecializationDropdown formData={formData} onChange={handleChange} />
-      <Link to={isFormComplete ? '/' : '#'}>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          type="submit"
-          className="mt-4 w-full rounded bg-primary px-8 py-2 font-bold text-white transition-colors hover:bg-primary"
-        >
-          Create an Expert
-        </motion.button>
-      </Link>
+
+      <motion.input
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2 }}
+        type="file"
+        name="image"
+        required
+        placeholder="Image"
+        onChange={handleChange}
+        className="mb-4 w-11/12 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-green-500 sm:w-full"
+      />
+
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        type="submit"
+        className="mt-4 w-full rounded bg-primary px-8 py-2 font-bold text-white transition-colors hover:bg-primary"
+      >
+        Create an Expert
+      </motion.button>
     </form>
   );
 };
@@ -154,6 +173,7 @@ CreateExpertForm.propTypes = {
     fee: PropTypes.number.isRequired,
     status: PropTypes.bool.isRequired,
     specialization_id: PropTypes.string.isRequired,
+    image: PropTypes.instanceOf(File),
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,

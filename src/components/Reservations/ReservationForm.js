@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { queryExpertDetails } from '../../redux/QueryExperts/queryExpertsSlice';
 import { postReservationDetails } from '../../redux/Reservations/sendReservationSlice';
+import Sidebar from '../Navigation/Sidebar';
 
 function ReservationForm() {
   const userObject = sessionStorage.getItem('userPassport');
@@ -51,73 +53,104 @@ function ReservationForm() {
   }
 
   return (
-    <div className="h-screen bg-cover" style={{ backgroundImage: 'url("./images/reservation.jpg")' }}>
-      <div className="w-full h-screen flex flex-col justify-center items-center bg-black p-4 text-center opacity-75">
-        <div className="w-full flex">
-          <button type="button" onClick={() => navigate(-1)} className="bg-red-500 text-white p-2 font-bold hover:bg-red-800 rounded-lg">
-            X
-          </button>
-        </div>
-        {error && <div className="p-2 mb-2 text-sm text-red-800 font-bold rounded-lg bg-red-50">Expert data failed to load</div>}
-        {loading && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">Expert data is loading ...</div>}
-        {error1 && <div className="p-2 mb-2 text-sm text-red-800 font-bold rounded-lg bg-red-50">Reserving and expert failed at this point</div>}
-        {loading1 && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">loading ...</div>}
-        {postReservationData && <div className="p-2 mb-2 text-sm text-green-800 font-bold rounded-lg bg-green-50">You have just reserved an Expert</div>}
-        <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded-md">
-          <div className="text-2xl text-white font-bold mb-3">Reserve an Expert</div>
-          <div>
-            <input
-              type="text"
-              id="user_id"
-              disabled
-              required
-              value={jsonObject.name}
-              className="w-full px-3 py-2 border rounded-md bg-lime-200"
-            />
-          </div>
-          <select
-            id="expert_id"
-            value={expertId}
-            required
-            onChange={(e) => setExpertId(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md bg-lime-200"
+    <>
+      <Sidebar />
+      <div className="h-screen bg-gray-100">
+        <div className="flex h-screen w-full flex-col items-center justify-center bg-gray-200">
+          {error && (
+            <div className="text-red-500">Expert data failed to load</div>
+          )}
+          {loading && (
+            <div className="text-blue-500">Expert data is loading ...</div>
+          )}
+          {error1 && (
+            <div className="text-red-500">
+              Reserving an expert failed at this point
+            </div>
+          )}
+          {loading1 && <div className="text-blue-500">loading ...</div>}
+          {postReservationData && (
+            <div className="text-green-500">
+              You have just reserved an Expert
+            </div>
+          )}
+          <motion.form
+            initial={{ y: '-100vh' }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', stiffness: 50, duration: 2 }}
+            onSubmit={handleSubmit}
+            className="relative w-full max-w-md rounded bg-white p-8 shadow-md"
           >
-            <option value="">Select an Expert</option>
-            {expertData && Object.entries(expertData).map(([id, data]) => (
-              <option key={id} value={data.id}>
-                {`${data.first_name} ${data.last_name}`}
-              </option>
-            ))}
-          </select>
-          <div className="mt-4">
-            <input
-              type="text"
-              id="city"
-              placeholder="Write your City here"
-              autoComplete="off"
-              required
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md bg-lime-200"
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="date"
-              id="reserveDate"
-              placeholder="date"
-              required
-              value={reserveDate}
-              onChange={(e) => setReserveDate(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md bg-lime-200"
-            />
-          </div>
-          <button type="submit" className="w-full bg-lime-500 text-white hover:bg-lime-600 rounded-md py-2">
-            Submit
-          </button>
-        </form>
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="absolute right-4 top-4 rounded-full bg-red-500 p-1 text-white transition duration-200 hover:bg-red-700"
+            >
+              <AiOutlineClose size={24} />
+            </button>
+            <div className="mb-4 text-2xl font-bold">Reserve an Expert</div>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="user_id"
+                disabled
+                required
+                value={jsonObject.name}
+                className="w-full rounded border border-gray-300 p-2"
+              />
+            </div>
+            <div className="mb-4">
+              <select
+                id="expert_id"
+                value={expertId}
+                required
+                onChange={(e) => setExpertId(e.target.value)}
+                className="w-full rounded border border-gray-300 p-2"
+              >
+                <option value="">Select an Expert</option>
+                {expertData
+                  && Object.entries(expertData).map(([id, data]) => (
+                    <option key={id} value={data.id}>
+                      {`${data.first_name} ${data.last_name}`}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="city"
+                placeholder="Write your City here"
+                autoComplete="off"
+                required
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className="w-full rounded border border-gray-300 p-2"
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="date"
+                id="reserveDate"
+                placeholder="date"
+                required
+                value={reserveDate}
+                onChange={(e) => setReserveDate(e.target.value)}
+                className="w-full rounded border border-gray-300 p-2"
+              />
+            </div>
+            <motion.button
+              type="submit"
+              className="w-full rounded bg-blue-500 p-2 text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Submit
+            </motion.button>
+          </motion.form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
