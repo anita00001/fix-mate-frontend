@@ -103,7 +103,7 @@ const CreateExpert = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="flex h-screen w-screen flex-col items-center justify-center bg-gray-100"
+        className="flex h-screen w-screen flex-col items-center justify-center bg-gray-100 lg:ml-32"
       >
         <motion.h1
           initial={{ scale: 0 }}
