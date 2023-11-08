@@ -13,7 +13,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -22,7 +22,9 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(false);
     dispatch(loginDetails({ email, password }));
+    setIsLoading(true);
     setEmail('');
     setPassword('');
   };
@@ -96,7 +98,7 @@ function LoginForm() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Login
+                {isLoading ? 'logging...' : 'Log in'}
               </motion.button>
               <p className="mt-3 text-sm font-light text-gray-500">
                 Don’t have an account yet?
