@@ -1,0 +1,50 @@
+.sideBar {
+  transform: translateX(-1%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+}
+
+.sideBar a.active {
+  background: #98bf11;
+  color: white;
+}
+
+.closeSidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1rem;
+  z-index: 15;
+}
+
+.close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1rem;
+  z-index: 15;
+}
+
+.sideBarHidden {
+  transform: translateX(-101%);
+  z-index: 99;
+  background: white;
+  transition: all 0.4s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .sideBarHidden,
+  .sideBar {
+    transform: translateX(0);
+    left: 0;
+    top: 0;
+    width: 20%;
+    transition: all 250ms ease-in-out;
+  }
+
+  .sidebarBtn {
+    display: none;
+  }
+}

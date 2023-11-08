@@ -1,0 +1,44 @@
+.swiper {
+  height: 40rem;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: whitesmoke;
+  font-size: 16px;
+  background-color: #98bf11;
+  padding: 0.9rem 1.5rem;
+}
+
+.swiper-button-next::after {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.swiper-button-prev::after {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding-left: 10px;
+}
+
+.slider-controler .slider-arrow {
+  color: #98bf11;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: #98bf11;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 20px;
+    padding: 1rem 1.8rem;
+  }
+
+  .swiper-button-prev::after {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding-left: 10px;
+  }
+}
