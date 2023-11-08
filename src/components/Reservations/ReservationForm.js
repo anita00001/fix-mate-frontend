@@ -7,7 +7,7 @@ import { queryExpertDetails } from '../../redux/QueryExperts/queryExpertsSlice';
 import { postReservationDetails } from '../../redux/Reservations/sendReservationSlice';
 import Sidebar from '../Navigation/Sidebar';
 
-function ReservationForm() {
+const ReservationForm = () => {
   const userObject = sessionStorage.getItem('userPassport');
   const jsonObject = JSON.parse(userObject);
   const dispatch = useDispatch();
@@ -147,6 +147,6 @@ function ReservationForm() {
       </div>
     </>
   );
-}
+};
 
 export default ReservationForm;

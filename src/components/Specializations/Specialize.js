@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Sidebar from '../Navigation/Sidebar';
 import { fetchSpecializations, specialDetails } from '../../redux/Specializations/specialitiesSlice';
 
-export default function Specialize() {
+const Specialize = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -97,4 +97,6 @@ export default function Specialize() {
       </motion.div>
     </>
   );
-}
+};
+
+export default Specialize;

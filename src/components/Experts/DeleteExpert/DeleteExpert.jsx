@@ -5,7 +5,7 @@ import Sidebar from '../../Navigation/Sidebar';
 import { fetchExperts, toggleRemoveExpert } from '../../../redux/Experts/expertsSlice';
 import DeleteExpertTable from './DeleteExpertTable';
 
-function DeleteExpert() {
+const DeleteExpert = () => {
   const dispatch = useDispatch();
   const { experts } = useSelector((state) => state.experts);
   const [loading, setLoading] = React.useState(true);
@@ -62,5 +62,6 @@ function DeleteExpert() {
       </motion.div>
     </>
   );
-}
+};
+
 export default DeleteExpert;

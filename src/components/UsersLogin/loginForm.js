@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginDetails } from '../../redux/login/loginSlice';
 import Login from '../../assets/login.jpeg';
 
-function LoginForm() {
+const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginData = useSelector((state) => state.login.userData);
@@ -114,6 +114,6 @@ function LoginForm() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginForm;
