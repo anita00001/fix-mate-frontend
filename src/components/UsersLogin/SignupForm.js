@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signupDetails } from '../../redux/signup/signupSlice';
 import SignUp from '../../assets/signup.jpeg';
 
-function SignupForm() {
+const SignupForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -156,6 +156,6 @@ function SignupForm() {
       </motion.div>
     </div>
   );
-}
+};
 
 export default SignupForm;

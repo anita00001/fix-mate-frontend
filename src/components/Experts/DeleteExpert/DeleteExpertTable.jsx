@@ -32,7 +32,7 @@ const renderImageCell = (cellData, alt) => (
     <img src={cellData} alt={alt} className="rounded-full" />
   </div>
 );
-function DeleteExpertTable({ experts, onToggleRemove }) {
+const DeleteExpertTable = ({ experts, onToggleRemove }) => {
   const formattedData = experts.map((expert) => ({
     id: expert.id,
     name: `${expert.first_name} ${expert.last_name}`,
@@ -93,9 +93,7 @@ function DeleteExpertTable({ experts, onToggleRemove }) {
       fixedHeader
     />
   );
-}
-
-export default DeleteExpertTable;
+};
 
 DeleteExpertTable.propTypes = {
   experts: PropTypes.arrayOf(
@@ -113,3 +111,5 @@ DeleteExpertTable.propTypes = {
   ).isRequired,
   onToggleRemove: PropTypes.func.isRequired,
 };
+
+export default DeleteExpertTable;

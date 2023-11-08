@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/main.css';
 
-export default function Authenticate() {
+const Authenticate = () => {
   const navigate = useNavigate();
   return (
     <motion.div
@@ -45,4 +45,6 @@ export default function Authenticate() {
       </div>
     </motion.div>
   );
-}
+};
+
+export default Authenticate;

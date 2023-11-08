@@ -6,7 +6,7 @@ import { postReservationDetails } from '../../redux/Reservations/sendReservation
 import { fetchExperts } from '../../redux/Experts/expertsSlice';
 import Sidebar from '../Navigation/Sidebar';
 
-function ReservationFormDetails() {
+const ReservationFormDetails = () => {
   const userObject = sessionStorage.getItem('userPassport');
   const jsonObject = JSON.parse(userObject);
   const dispatch = useDispatch();
@@ -148,6 +148,6 @@ function ReservationFormDetails() {
       </motion.div>
     </>
   );
-}
+};
 
 export default ReservationFormDetails;
