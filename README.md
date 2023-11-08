@@ -42,8 +42,12 @@
 
 > - [Link to Back-end Repository](https://github.com/anita00001/fix-mate-backend)
 
-## Kanban Board Link
+## Kanban Board
 > - [Link to Kanban Board](https://github.com/users/anita00001/projects/5)
+
+> - [Kanban Board Screenshot](https://user-images.githubusercontent.com/24216198/278346153-6af22972-9982-4560-ba4d-c943ffeb9330.png)
+
+> - [Number of Team Members - 4](#-authors-) 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -156,24 +160,24 @@ npm start
 
 The collaborators of this project.
 
-👨‍🚀 **Anita Sharma**
-> - GitHub: [@anita00001](https://github.com/anita00001)
-> - LinkedIn: [anitaa-sharmaa](https://www.linkedin.com/in/anitaa-sharmaa/)
-> - Twitter: [@anitaa_sharmaa](https://twitter.com/anitaa_sharmaa)
+👤 **Anita Sharma**
+> - [GitHub](https://github.com/anita00001)
+> - [LinkedIn](https://www.linkedin.com/in/anitaa-sharmaa/)
+> - [Twitter](https://twitter.com/anitaa_sharmaa)
 
 👤 **Ansar Ibrahim**
-- [GitHub](https://github.com/AnsarIbrahim)
-- [LinkedIn](https://linkedin.com/in/ansar-ibrahim/)
-- [Twitter](https://twitter.com/ansaradheeb)
+> - [GitHub](https://github.com/AnsarIbrahim)
+> - [LinkedIn](https://linkedin.com/in/ansar-ibrahim/)
+> - [Twitter](https://twitter.com/ansaradheeb)
 
 👤 **MoFuhidy**
-- GitHub: [@Mofuhidy](https://github.com/Mofuhidy)
-- LinkedIn: [@Mofuhidy](https://www.linkedin.com/in/mo-fuhidy/)
+> - [GitHub](https://github.com/Mofuhidy)
+> - [LinkedIn](https://www.linkedin.com/in/mo-fuhidy/)
 
 👤 **Theodore Asimeng-Osei**
-- GitHub: [@githubhandle](https://github.com/Theodoraldo)
-- Twitter: [@twitterhandle](https://twitter.com/AsimengOse33947)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/theodoreasimeng/)
+> - [GitHub](https://github.com/Theodoraldo)
+> - [Twitter](https://twitter.com/AsimengOse33947)
+> - [LinkedIn](https://www.linkedin.com/in/theodoreasimeng/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
