@@ -29,7 +29,8 @@
 **Fix Mate** is committed to making everyday life more convenient by connecting users with trusted service providers. It is a one-stop platform for finding, booking, and  reviewing services, all from the comfort of your home. Users can communicate with service providers through the app, discussing specific requirements, asking questions, and confirming details.
 
 ## Responsive View
-  ![fixmate](https://github.com/anita00001/fix-mate-frontend/assets/117971223/39e674d3-ce2b-4db0-94cc-e0119047e775)
+
+![fixmate](https://github.com/anita00001/fix-mate-frontend/assets/117971223/0a81e043-0be9-4396-a351-e3ee5301699a)
 
 
 ## Live Link
