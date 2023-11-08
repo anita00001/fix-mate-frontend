@@ -58,7 +58,7 @@ const SignupForm = () => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition:
-          windowWidth >= 640 ? 'center -300px' : 'center',
+          windowWidth >= 640 ? 'center' : 'center',
       }}
     >
       <motion.div

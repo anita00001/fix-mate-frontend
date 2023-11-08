@@ -4,9 +4,3 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
-@media (min-width: 640px) {
-  .backgroundImage {
-    background-position: center -150px;
-  }
-}

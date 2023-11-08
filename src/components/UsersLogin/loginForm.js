@@ -51,7 +51,7 @@ const LoginForm = () => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition:
-            windowWidth >= 640 ? 'center -400px' : 'center',
+            windowWidth >= 640 ? 'center' : 'center',
         }}
       />
       <div className="relative mx-auto flex h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
