@@ -136,7 +136,7 @@ function ReservationForm() {
             </div>
             <motion.button
               type="submit"
-              className="w-full rounded bg-blue-500 p-2 text-white"
+              className="w-full rounded bg-primary p-2 text-white"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
