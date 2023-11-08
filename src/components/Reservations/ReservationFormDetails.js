@@ -133,6 +133,7 @@ function ReservationFormDetails() {
               id="reserveDate"
               value={reserveDate}
               onChange={(e) => setReserveDate(e.target.value)}
+              min={new Date().toISOString().split('T')[0]}
               className="input"
             />
             <motion.button

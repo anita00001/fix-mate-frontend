@@ -130,6 +130,7 @@ function ReservationForm() {
                 required
                 value={reserveDate}
                 onChange={(e) => setReserveDate(e.target.value)}
+                min={new Date().toISOString().split('T')[0]}
                 className="w-full rounded border border-gray-300 p-2"
               />
             </div>
