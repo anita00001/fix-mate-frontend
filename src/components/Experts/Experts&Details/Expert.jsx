@@ -45,7 +45,11 @@ const Experts = () => {
       <Sidebar />
       <div className="page bg-gray-100 pt-8">
         <h1 className="text-3xl font-bold">Meet our Experts</h1>
-        <p className="text-lg text-gray-600">Please select an Expert</p>
+        <p className="text-lg text-gray-600 ">
+          {experts.length === 0
+            ? 'No expert available. Please add a new expert'
+            : 'Please select an Expert'}
+        </p>
         <span className="font-thin text-slate-500">
           ............................
         </span>
