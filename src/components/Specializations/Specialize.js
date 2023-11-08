@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Sidebar from '../Navigation/Sidebar';
 import { fetchSpecializations, specialDetails } from '../../redux/Specializations/specialitiesSlice';
 
 const Specialize = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const error = useSelector((state) => state.login.error);
@@ -21,6 +23,7 @@ const Specialize = () => {
     dispatch(fetchSpecializations());
     setName('');
     setDescription('');
+    navigate('/experts');
   };
 
   if (loading) {

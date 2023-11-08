@@ -7,10 +7,13 @@ import SpecializationDropdown from '../../Specializations/SpecializationDropdown
 const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
   const navigate = useNavigate();
   const [workingTime, setWorkingTime] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const success = await handleSubmit(event, formData);
+    setIsLoading(false);
     if (success) {
       navigate('/');
     }
@@ -155,7 +158,7 @@ const CreateExpertForm = ({ formData, handleChange, handleSubmit }) => {
         type="submit"
         className="mt-4 w-full rounded bg-primary px-8 py-2 font-bold text-white transition-colors hover:bg-primary"
       >
-        Create an Expert
+        {isLoading ? 'Creating...' : 'Create an Expert'}
       </motion.button>
     </form>
   );

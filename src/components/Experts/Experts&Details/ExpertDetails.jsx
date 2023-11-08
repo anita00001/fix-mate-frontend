@@ -45,7 +45,7 @@ const ExpertDetails = () => {
   return (
     <>
       <Sidebar />
-      <div className="flex h-[100vh] items-center justify-center">
+      <div className="flex h-[100vh] items-center justify-center mt-10 sm:mt-0">
         <motion.div
           initial={{ opacity: 0, x: -350 }}
           animate={{ opacity: 1, x: 0 }}
@@ -57,12 +57,14 @@ const ExpertDetails = () => {
               key={expert.id}
               className="flex w-full flex-col items-center justify-center space-y-4 md:ml-10 md:flex-row md:space-x-32 md:space-y-0"
             >
-              <motion.img
-                alt={expert.first_name}
-                src={expert.image_url}
-                className="h-64 w-[80%] rounded-full object-cover shadow-lg md:h-full md:w-1/2"
-                whileHover={{ scale: 1.1 }}
-              />
+              <div className="h-64 w-64 overflow-hidden rounded-full md:h-96 md:w-96 lg:h-128 lg:w-128">
+                <motion.img
+                  src={expert.image_url}
+                  alt={expert.first_name}
+                  className="h-full w-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                />
+              </div>
               <div className="space-y-2 text-center md:w-1/2 md:items-end md:text-left">
                 <h2 className="text-2xl font-bold text-slate-600">
                   {expert.first_name}
@@ -103,7 +105,7 @@ const ExpertDetails = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => navigate(-1)}
-            className="hover:bg-primary cursor-pointer mt-4 rounded md:-ml-48 bg-primary px-4 py-2 text-white md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
+            className="mt-4 cursor-pointer rounded bg-primary px-4 py-2 text-white hover:bg-primary md:-ml-48 md:mt-10 md:self-start md:px-8 md:py-4 md:text-xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

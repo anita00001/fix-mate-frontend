@@ -130,12 +130,13 @@ const ReservationForm = () => {
                 required
                 value={reserveDate}
                 onChange={(e) => setReserveDate(e.target.value)}
+                min={new Date().toISOString().split('T')[0]}
                 className="w-full rounded border border-gray-300 p-2"
               />
             </div>
             <motion.button
               type="submit"
-              className="w-full rounded bg-blue-500 p-2 text-white"
+              className="w-full rounded bg-primary p-2 text-white"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >

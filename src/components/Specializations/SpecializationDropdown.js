@@ -24,11 +24,13 @@ const SpecializationDropdown = ({ formData, onChange }) => {
       onChange={onChange}
     >
       <option value="">Select Specialization</option>
-      {specializations.map((specialization) => (
-        <option key={specialization.id} value={specialization.id}>
-          {specialization.name}
-        </option>
-      ))}
+      {specializations
+        && Array.isArray(specializations)
+        && specializations.map((specialization) => (
+          <option key={specialization.id} value={specialization.id}>
+            {specialization.name}
+          </option>
+        ))}
     </motion.select>
   );
 };
