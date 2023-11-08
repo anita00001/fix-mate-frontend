@@ -16,6 +16,7 @@ const SignupForm = () => {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [signupError, setSignupError] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -30,6 +31,7 @@ const SignupForm = () => {
       return;
     }
     setSignupError(false);
+    setIsLoading(true);
 
     if (password === confirmPassword) {
       setPasswordMatch(true);
@@ -39,6 +41,7 @@ const SignupForm = () => {
       setPassword('');
       setConfirmPassword('');
       setSignupSuccess(true);
+      setIsLoading(true);
       setTimeout(() => {
         navigate('/login');
       }, 5000);
@@ -142,7 +145,7 @@ const SignupForm = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Register
+              {isLoading ? 'Registering...' : 'Register'}
             </motion.button>
             <p className="mt-3 text-sm font-light text-gray-500">
               Have an account already?

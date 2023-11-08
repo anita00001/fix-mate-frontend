@@ -78,11 +78,13 @@ const Experts = () => {
                   transition={{ type: 'spring', stiffness: 50 }}
                   className="mx-auto mt-10 flex w-[60%] flex-col items-center text-center"
                 >
-                  <img
-                    alt={expert.first_name}
-                    src={expert.image_url}
-                    className="rounded-full shadow-lg"
-                  />
+                  <div className="h-32 w-32 overflow-hidden rounded-full">
+                    <img
+                      src={expert.image_url}
+                      alt={expert.first_name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                   <span className="font-thin text-slate-500">
                     ............................
                   </span>
